@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class MainListViewController: UIViewController {
     
@@ -41,6 +40,7 @@ class MainListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(JournalCell.self, forCellWithReuseIdentifier: "JournalCell")
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         view.addSubview(collectionView)
     }
     
@@ -49,7 +49,7 @@ class MainListViewController: UIViewController {
             fatalError("CollectionViewFlowLayout Not Found")
         }
         
-        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 0
@@ -71,10 +71,28 @@ extension MainListViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.configure(with: item)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+        view.configure(with: "Hello World, How Are you")
+        return view
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let indexPath = IndexPath(item: 0, section: section)
+        let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+
+        
+        let headerWidth: CGFloat = collectionView.frame.width
+        return
+            headerView.systemLayoutSizeFitting(CGSize(width: headerWidth, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+    }
 }
 
 
 #if DEBUG
+import SwiftUI
+
 struct MainListViewControllerRepresentable: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

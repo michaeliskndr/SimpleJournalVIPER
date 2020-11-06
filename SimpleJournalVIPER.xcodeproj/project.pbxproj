@@ -13,6 +13,7 @@
 		AD3E0C602542DF7700BECFFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD3E0C5E2542DF7700BECFFD /* LaunchScreen.storyboard */; };
 		ADF0BFB6255149B30006E673 /* JournalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0BFB5255149B30006E673 /* JournalStore.swift */; };
 		ADF0BFB8255149BA0006E673 /* JournalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0BFB7255149BA0006E673 /* JournalItem.swift */; };
+		FB77061F255536DB00321C76 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77061E255536DB00321C76 /* HeaderView.swift */; };
 		FB7AA5BC255513EC009349CD /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5BB255513EC009349CD /* MainListViewController.swift */; };
 		FB7AA5C42555148E009349CD /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5C32555148E009349CD /* JournalCell.swift */; };
 		FB7AA5C925551D28009349CD /* MainListModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5C825551D28009349CD /* MainListModuleProtocol.swift */; };
@@ -30,6 +31,7 @@
 		AD3E0C612542DF7700BECFFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF0BFB5255149B30006E673 /* JournalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalStore.swift; sourceTree = "<group>"; };
 		ADF0BFB7255149BA0006E673 /* JournalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalItem.swift; sourceTree = "<group>"; };
+		FB77061E255536DB00321C76 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		FB7AA5BB255513EC009349CD /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
 		FB7AA5C32555148E009349CD /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		FB7AA5C825551D28009349CD /* MainListModuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListModuleProtocol.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				FB7AA5CE25551D3C009349CD /* MainListInteractor.swift */,
 				FB7AA5D125551D43009349CD /* MainListRouter.swift */,
 				FB7AA5D525551D53009349CD /* MainListPresenter.swift */,
+				FB77061E255536DB00321C76 /* HeaderView.swift */,
 			);
 			path = MainListModule;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				ADF0BFB8255149BA0006E673 /* JournalItem.swift in Sources */,
 				FB7AA5D225551D43009349CD /* MainListRouter.swift in Sources */,
 				FB7AA5C925551D28009349CD /* MainListModuleProtocol.swift in Sources */,
+				FB77061F255536DB00321C76 /* HeaderView.swift in Sources */,
 				FB7AA5BC255513EC009349CD /* MainListViewController.swift in Sources */,
 				AD3E0C562542DF7500BECFFD /* SceneDelegate.swift in Sources */,
 				FB7AA5C42555148E009349CD /* JournalCell.swift in Sources */,

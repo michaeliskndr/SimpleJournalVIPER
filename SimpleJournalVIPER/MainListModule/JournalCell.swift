@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class JournalCell: UICollectionViewCell {
     
@@ -102,6 +101,8 @@ class JournalCell: UICollectionViewCell {
 }
 
 #if DEBUG
+import SwiftUI
+
 struct JournalCellRepresentable: UIViewRepresentable {
     
     let item = JournalItem(id: 5, title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: "Happy"))
