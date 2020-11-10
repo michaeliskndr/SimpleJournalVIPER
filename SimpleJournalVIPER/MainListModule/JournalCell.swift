@@ -84,13 +84,7 @@ class JournalCell: UICollectionViewCell {
         detailLabel.text = item.detail
         let dateString = item.date.toString()
         dateLabel.text = dateString
-        
-        switch item.mood.mood {
-        case .joy: moodLabel.text = "😀"
-        case .happy: moodLabel.text = "😊"
-        case .cry: moodLabel.text = "😭"
-        case .sad: moodLabel.text = "😨"
-        }
+        moodLabel.text = item.mood.mood.emoji
     }
     
     override func layoutSubviews() {
