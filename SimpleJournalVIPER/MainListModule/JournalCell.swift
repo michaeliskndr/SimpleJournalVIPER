@@ -11,15 +11,11 @@ import UIKit
 class JournalCell: UICollectionViewCell {
     
     private let titleLabel = UILabel()
+    private let moodLabel = UILabel()
     private let detailLabel = UILabel()
     private let dateLabel = UILabel()
     private let vStack = UIStackView()
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy"
-        
-        return formatter
-    }()
+    private let hStack = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +39,9 @@ class JournalCell: UICollectionViewCell {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         titleLabel.adjustsFontForContentSizeCategory = true
         
+        moodLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        moodLabel.adjustsFontForContentSizeCategory = true
+        
         detailLabel.font = UIFont.preferredFont(forTextStyle: .body)
         detailLabel.adjustsFontForContentSizeCategory = true
         detailLabel.numberOfLines = 0
@@ -50,11 +49,19 @@ class JournalCell: UICollectionViewCell {
         dateLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        hStack.axis = .horizontal
+        hStack.spacing = 8
+        hStack.distribution = .fill
+        
+        hStack.addArrangedSubview(titleLabel)
+        hStack.addArrangedSubview(moodLabel)
+        hStack.addArrangedSubview(UIView())
+        
         vStack.axis = .vertical
         vStack.spacing = 8
         vStack.translatesAutoresizingMaskIntoConstraints = false
         
-        vStack.addArrangedSubview(titleLabel)
+        vStack.addArrangedSubview(hStack)
         vStack.addArrangedSubview(detailLabel)
         
         contentView.addSubview(vStack)
@@ -75,8 +82,15 @@ class JournalCell: UICollectionViewCell {
     func configure(with item: JournalItem) {
         titleLabel.text = item.title
         detailLabel.text = item.detail
-        let dateString = dateFormatter.string(from: item.date)
+        let dateString = item.date.toString()
         dateLabel.text = dateString
+        
+        switch item.mood.mood {
+        case .joy: moodLabel.text = "😀"
+        case .happy: moodLabel.text = "😊"
+        case .cry: moodLabel.text = "😭"
+        case .sad: moodLabel.text = "😨"
+        }
     }
     
     override func layoutSubviews() {
@@ -105,7 +119,7 @@ import SwiftUI
 
 struct JournalCellRepresentable: UIViewRepresentable {
     
-    let item = JournalItem(id: 5, title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: "Happy"))
+    let item = JournalItem(id: 5, title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: .happy))
     
     func updateUIView(_ uiView: JournalCell, context: Context) {
     }

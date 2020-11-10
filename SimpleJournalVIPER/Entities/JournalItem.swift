@@ -17,8 +17,11 @@ struct JournalItem: Hashable {
     let mood: Mood
     
     struct Mood: Hashable {
+        enum Mood: String {
+            case happy, sad, joy, cry
+        }
         let happiness: Double
-        let mood: String
+        let mood: Mood
     }
     
     init(id: Int, title: String, date: Date, detail: String, mood: Mood) {
