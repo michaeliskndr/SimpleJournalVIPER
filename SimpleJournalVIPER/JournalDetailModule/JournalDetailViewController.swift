@@ -17,7 +17,7 @@ class JournalDetailViewController: UIViewController {
     private let dateLabel = UILabel()
     private let moodLabel = UILabel()
     
-    public var journal: JournalItem = JournalItem(id: 5, title: "Hello Tester", date: Date(), detail: "hehehehehehehehehehehe", mood: .init(happiness: 99, mood: .cry))
+    public var journal: JournalItem = JournalItem(id: 5, title: "Hello Tester", date: Date(), detail: "hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe", mood: .init(happiness: 99, mood: .cry))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,13 @@ class JournalDetailViewController: UIViewController {
         
         detailLabel.font = UIFont.preferredFont(forTextStyle: .body)
         detailLabel.adjustsFontForContentSizeCategory = true
+        detailLabel.numberOfLines = 0
         
-        dateLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        dateLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         dateLabel.adjustsFontForContentSizeCategory = true
         
         hStack.axis = .horizontal
-        hStack.spacing = 16
+        hStack.spacing = 8
         
         hStack.addArrangedSubview(titleLabel)
         hStack.addArrangedSubview(moodLabel)
@@ -67,13 +68,13 @@ class JournalDetailViewController: UIViewController {
     }
     
     private func setupLayout() {
-        let vStackBottomAnchor = vStack.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -16)
+        let vStackBottomAnchor = vStack.safeAreaLayoutGuide.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -16)
 
         NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            vStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            vStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             vStackBottomAnchor,
-            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            vStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
     }
     
