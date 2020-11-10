@@ -16,14 +16,32 @@ class JournalDetailViewController: UIViewController {
     private let detailLabel = UILabel()
     private let dateLabel = UILabel()
     private let moodLabel = UILabel()
+        
+    public var presenter: JournalDetailPresenterProtocol
     
-    public var journal: JournalItem = JournalItem(id: 5, title: "Hello Tester", date: Date(), detail: "hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe", mood: .init(happiness: 99, mood: .cry))
+    init(presenter: JournalDetailPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        self.presenter.reload = { [weak self] item in
+            self?.configure(with: item)
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Not Implementing Storyboard")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupLayout()
-        configure(with: journal)
+        presenter.viewWillAppear()
     }
 
     private func setupViews() {
@@ -57,6 +75,7 @@ class JournalDetailViewController: UIViewController {
         vStack.addArrangedSubview(dateLabel)
         vStack.addArrangedSubview(detailLabel)
         
+        view.backgroundColor = .white
         view.addSubview(vStack)
     }
     
@@ -85,11 +104,14 @@ class JournalDetailViewController: UIViewController {
 import SwiftUI
 
 struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
+    
+    let item: JournalItem
+    
     func updateUIViewController(_ uiViewController: JournalDetailViewController, context: Context) {
     }
     
-    func makeUIViewController(context: Context) -> JournalDetailViewController{
-        let controller = JournalDetailViewController()
+    func makeUIViewController(context: Context) -> JournalDetailViewController {
+        let controller = JournalDetailRouter.createJournalDetailModule(with: item)
         return controller
     }
 }
@@ -97,7 +119,7 @@ struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct JournalDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        return JournalDetailViewControllerRepresentable()
+        return JournalDetailViewControllerRepresentable(item: JournalItem(id: 5, title: "Hello", date: Date(), detail: "hehehehehehehe", mood: .init(happiness: 98.5, mood: .cry)))
     }
 }
 #endif

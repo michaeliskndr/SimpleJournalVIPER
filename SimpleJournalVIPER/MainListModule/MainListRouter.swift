@@ -21,8 +21,10 @@ class MainListRouter: MainListRouterProtocol {
     }
     
     //TODO: IMPLEMENT DETAIL VC
-    func prsentToDetailJournal(_ item: JournalItem) {
-        fatalError("Detail VC NOT YET IMPLEMENTED")
+    func presentToDetailJournal(from view: UIViewController, item: JournalItem) {
+        let detailController = JournalDetailRouter.createJournalDetailModule(with: item)
+        view.navigationController?.pushViewController(detailController, animated: true)
+        
     }
     
     

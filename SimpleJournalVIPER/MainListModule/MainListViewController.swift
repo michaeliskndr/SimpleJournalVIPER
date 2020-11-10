@@ -26,6 +26,11 @@ class MainListViewController: UIViewController {
         fatalError("Storyboard not implemented yet")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -41,6 +46,8 @@ class MainListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(JournalCell.self, forCellWithReuseIdentifier: "JournalCell")
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+        
+        navigationItem.title = "Simple Journal"
         view.addSubview(collectionView)
     }
     
@@ -70,6 +77,10 @@ extension MainListViewController: UICollectionViewDataSource, UICollectionViewDe
         let item = presenter.itemForRow(indexPath)
         cell.configure(with: item)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.goToDetail(from: self, at: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

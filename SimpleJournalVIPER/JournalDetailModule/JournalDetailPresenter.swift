@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+class JournalDetailPresenter: JournalDetailPresenterProtocol {
+    
+    var interactor: JournalDetailInteractorProtocol?
+    
+    var router: JournalDetailRouterProtocol?
+    
+    var reload: ((JournalItem) -> ())?
+    
+    func viewWillAppear() {
+        guard let reload = reload else { fatalError("Reload Function Not Exist") }
+        guard let interactor = interactor else { fatalError("Interactor not exist") }
+        let item = interactor.getJournal()
+        reload(item)
+    }
+    
+    
+}

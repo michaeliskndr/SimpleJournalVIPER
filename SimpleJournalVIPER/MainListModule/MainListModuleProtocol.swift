@@ -9,6 +9,7 @@
 import UIKit
 
 protocol MainListPresenterProtocol {
+    
     var router: MainListRouterProtocol? { get set }
     var interactor: MainListInteractorProtocol? { get set }
     
@@ -17,17 +18,22 @@ protocol MainListPresenterProtocol {
     var numberOfItems: Int { get }
     func viewWillAppear()
     func itemForRow(_ indexPath: IndexPath) -> JournalItem
-    
+    func goToDetail(from view: UIViewController, at indexPath: IndexPath)
+
 }
 
 protocol MainListRouterProtocol {
+    
     static func createMainListModule() -> UIViewController
     
-    func prsentToDetailJournal(_ item: JournalItem)
+    func presentToDetailJournal(from view: UIViewController, item: JournalItem)
+    
 }
 
 protocol MainListInteractorProtocol {
+    
     func addJournal(_ item: JournalItem)
     func removeJournal(_ item: JournalItem)
     func retrieveJournals() -> [JournalItem]
+    
 }
