@@ -9,14 +9,15 @@
 import UIKit
 
 class JournalDetailViewController: UIViewController {
-
+    
     private let vStack = UIStackView()
     private let hStack = UIStackView()
     private let titleLabel = UILabel()
     private let detailLabel = UILabel()
     private let dateLabel = UILabel()
     private let moodLabel = UILabel()
-        
+    private let scrollView = UIScrollView(frame: .zero)
+    
     public var presenter: JournalDetailPresenterProtocol
     
     init(presenter: JournalDetailPresenterProtocol) {
@@ -43,7 +44,7 @@ class JournalDetailViewController: UIViewController {
         setupLayout()
         presenter.viewWillAppear()
     }
-
+    
     private func setupViews() {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.adjustsFontForContentSizeCategory = true
@@ -63,7 +64,7 @@ class JournalDetailViewController: UIViewController {
         
         hStack.addArrangedSubview(titleLabel)
         hStack.addArrangedSubview(moodLabel)
-
+        
         vStack.axis = .vertical
         vStack.spacing = 24
         vStack.alignment = .leading
@@ -71,13 +72,18 @@ class JournalDetailViewController: UIViewController {
         
         vStack.addArrangedSubview(hStack)
         vStack.setCustomSpacing(4, after: hStack)
-
+        
         vStack.addArrangedSubview(dateLabel)
         vStack.addArrangedSubview(detailLabel)
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .red
+        scrollView.alwaysBounceVertical = true
         view.backgroundColor = .white
-        view.addSubview(vStack)
+        scrollView.addSubview(vStack)
+        view.addSubview(scrollView)
     }
+    
     
     private func configure(with item: JournalItem) {
         titleLabel.text = item.title
@@ -87,16 +93,21 @@ class JournalDetailViewController: UIViewController {
     }
     
     private func setupLayout() {
-        let vStackBottomAnchor = vStack.safeAreaLayoutGuide.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -16)
-
+        let frameGuide = scrollView.frameLayoutGuide
+        let contentGuide = scrollView.contentLayoutGuide
+        
         NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            vStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            vStackBottomAnchor,
-            vStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            frameGuide.topAnchor.constraint(equalTo: view.topAnchor),
+            frameGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            frameGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            frameGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            vStack.leadingAnchor.constraint(equalTo: contentGuide.leadingAnchor, constant: 16),
+            vStack.topAnchor.constraint(equalTo: contentGuide.topAnchor, constant: 16),
+            vStack.trailingAnchor.constraint(equalTo: contentGuide.trailingAnchor, constant: -16),
+            vStack.bottomAnchor.constraint(equalTo: contentGuide.bottomAnchor,constant: -16),
+            contentGuide.widthAnchor.constraint(equalTo: frameGuide.widthAnchor)
         ])
     }
-    
     
 }
 
