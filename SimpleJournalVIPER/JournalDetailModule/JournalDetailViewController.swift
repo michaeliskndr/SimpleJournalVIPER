@@ -77,9 +77,8 @@ class JournalDetailViewController: UIViewController {
         vStack.addArrangedSubview(detailLabel)
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = UIColor.offWhite
         scrollView.alwaysBounceVertical = true
-        view.backgroundColor = .white
         scrollView.addSubview(vStack)
         view.addSubview(scrollView)
     }

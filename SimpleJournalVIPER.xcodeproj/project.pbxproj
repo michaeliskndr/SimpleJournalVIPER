@@ -26,6 +26,7 @@
 		FB7AA5CF25551D3C009349CD /* MainListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5CE25551D3C009349CD /* MainListInteractor.swift */; };
 		FB7AA5D225551D43009349CD /* MainListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5D125551D43009349CD /* MainListRouter.swift */; };
 		FB7AA5D625551D53009349CD /* MainListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5D525551D53009349CD /* MainListPresenter.swift */; };
+		FBAC814F255CF67D00FD650E /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC814E255CF67D00FD650E /* Extensions+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		FB7AA5CE25551D3C009349CD /* MainListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListInteractor.swift; sourceTree = "<group>"; };
 		FB7AA5D125551D43009349CD /* MainListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListRouter.swift; sourceTree = "<group>"; };
 		FB7AA5D525551D53009349CD /* MainListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListPresenter.swift; sourceTree = "<group>"; };
+		FBAC814E255CF67D00FD650E /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1D5D5B255A6D410077B1C8 /* Extensions+Date.swift */,
+				FBAC814E255CF67D00FD650E /* Extensions+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				FB1D5D5C255A6D410077B1C8 /* Extensions+Date.swift in Sources */,
 				ADF0BFB6255149B30006E673 /* JournalStore.swift in Sources */,
 				FB1D5D54255A6B130077B1C8 /* JournalDetailInteractor.swift in Sources */,
+				FBAC814F255CF67D00FD650E /* Extensions+UIColor.swift in Sources */,
 				FB1D5D4E255A6B010077B1C8 /* JournalDetailPresenter.swift in Sources */,
 				AD3E0C542542DF7500BECFFD /* AppDelegate.swift in Sources */,
 				FB7AA5CF25551D3C009349CD /* MainListInteractor.swift in Sources */,

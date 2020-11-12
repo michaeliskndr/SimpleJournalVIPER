@@ -24,7 +24,7 @@ class JournalCell: UICollectionViewCell {
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        let itemWidth: CGFloat = UIScreen.main.bounds.width - 32
+        let itemWidth: CGFloat = UIScreen.main.bounds.width - 44
         
         return super.contentView.systemLayoutSizeFitting(CGSize(width: itemWidth, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
     }
@@ -34,7 +34,7 @@ class JournalCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = UIColor.systemGray6
+        contentView.backgroundColor = UIColor.offWhite
         
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         titleLabel.adjustsFontForContentSizeCategory = true
@@ -97,9 +97,9 @@ class JournalCell: UICollectionViewCell {
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
 
-        view.layer.shadowColor = UIColor.systemGray3.cgColor
-        view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        view.layer.shadowRadius = 1.0
+        view.layer.shadowColor = UIColor.shadowColor.cgColor
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        view.layer.shadowRadius = 3.0
         view.layer.shadowOpacity = 1.0
         view.layer.masksToBounds = false
         view.layer.shadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: view.layer.cornerRadius).cgPath

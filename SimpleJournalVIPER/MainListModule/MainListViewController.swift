@@ -56,7 +56,7 @@ class MainListViewController: UIViewController {
             fatalError("CollectionViewFlowLayout Not Found")
         }
         
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 0
