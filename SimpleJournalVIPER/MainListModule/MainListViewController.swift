@@ -54,11 +54,11 @@ class MainListViewController: UIViewController {
         navigationItem.title = "Simple Journal"
         let attrs: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.black,
-            .font: CustomScaleFont.customFont(style: .title3)
+            .font: CustomScaleFont.customFont(forStyle: .title3)
         ]
         let largeAttrs: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.black,
-            .font: CustomScaleFont.customFont(style: .largeTitle)
+            .font: CustomScaleFont.customFont(forStyle: .largeTitle)
         ]
         navigationController?.navigationBar.titleTextAttributes = attrs
         navigationController?.navigationBar.largeTitleTextAttributes = largeAttrs

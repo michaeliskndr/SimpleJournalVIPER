@@ -36,17 +36,17 @@ class JournalCell: UICollectionViewCell {
     private func setupViews() {
         contentView.backgroundColor = UIColor.offWhite
         
-        titleLabel.font = CustomScaleFont.customFont(style: .headline)
+        titleLabel.font = CustomScaleFont.customFont(forStyle: .headline)
         titleLabel.adjustsFontForContentSizeCategory = true
         
-        moodLabel.font = CustomScaleFont.customFont(style: .headline)
+        moodLabel.font = CustomScaleFont.customFont(forStyle: .headline)
         moodLabel.adjustsFontForContentSizeCategory = true
         
-        detailLabel.font = CustomScaleFont.customFont(style: .body)
+        detailLabel.font = CustomScaleFont.customFont(forStyle: .body)
         detailLabel.adjustsFontForContentSizeCategory = true
         detailLabel.numberOfLines = 0
         
-        dateLabel.font = CustomScaleFont.customFont(style: .footnote)
+        dateLabel.font = CustomScaleFont.customFont(forStyle: .footnote)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         hStack.axis = .horizontal

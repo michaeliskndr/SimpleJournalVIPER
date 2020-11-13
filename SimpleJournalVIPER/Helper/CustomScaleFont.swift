@@ -25,11 +25,11 @@ public class CustomScaleFont {
         
     ]
     
-    public class func customFont(style: UIFont.TextStyle) -> UIFont {
-        guard let fontFamily = fontDict[style], let font = fontFamily else {
+    public class func customFont(forStyle: UIFont.TextStyle) -> UIFont {
+        guard let fontFamily = fontDict[forStyle], let font = fontFamily else {
             fatalError("Font not found in App Resources")
         }
-        let fontMetrics = UIFontMetrics(forTextStyle: style)
+        let fontMetrics = UIFontMetrics(forTextStyle: forStyle)
         return fontMetrics.scaledFont(for: font)
     }
 }
