@@ -33,6 +33,7 @@ class MainListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupViews()
         setupCollectionViewLayout()
         presenter.viewWillAppear()
@@ -46,9 +47,21 @@ class MainListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(JournalCell.self, forCellWithReuseIdentifier: "JournalCell")
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        
-        navigationItem.title = "Simple Journal"
         view.addSubview(collectionView)
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Simple Journal"
+        let attrs: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.black,
+            .font: CustomScaleFont.customFont(style: .title3)
+        ]
+        let largeAttrs: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.black,
+            .font: CustomScaleFont.customFont(style: .largeTitle)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = attrs
+        navigationController?.navigationBar.largeTitleTextAttributes = largeAttrs
     }
     
     private func setupCollectionViewLayout() {

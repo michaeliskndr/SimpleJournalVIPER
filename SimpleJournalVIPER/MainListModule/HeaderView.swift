@@ -26,7 +26,7 @@ class HeaderView: UICollectionReusableView {
     }
     
     private func setupViews() {
-        headerLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        headerLabel.font = CustomScaleFont.customFont(style: .title2)
         headerLabel.numberOfLines = 0
         headerLabel.adjustsFontForContentSizeCategory = true
         headerLabel.translatesAutoresizingMaskIntoConstraints = false

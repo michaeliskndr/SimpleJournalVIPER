@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NotoSansJP-Regular.otf</string>
+		<string>NotoSansJP-Medium.otf</string>
+		<string>NotoSansJP-Bold.otf</string>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
