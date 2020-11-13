@@ -10,10 +10,10 @@ import UIKit
 
 class JournalCell: UICollectionViewCell {
     
-    private let titleLabel = UILabel()
-    private let moodLabel = UILabel()
-    private let detailLabel = UILabel()
-    private let dateLabel = UILabel()
+    private let titleLabel = UILabel(forTextStyle: .headline)
+    private let moodLabel = UILabel(forTextStyle: .headline)
+    private let detailLabel = UILabel(forTextStyle: .body)
+    private let dateLabel = UILabel(forTextStyle: .footnote)
     private let vStack = UIStackView()
     private let hStack = UIStackView()
     
@@ -35,18 +35,8 @@ class JournalCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.backgroundColor = UIColor.offWhite
-        
-        titleLabel.font = CustomScaleFont.customFont(forStyle: .headline)
-        titleLabel.adjustsFontForContentSizeCategory = true
-        
-        moodLabel.font = CustomScaleFont.customFont(forStyle: .headline)
-        moodLabel.adjustsFontForContentSizeCategory = true
-        
-        detailLabel.font = CustomScaleFont.customFont(forStyle: .body)
-        detailLabel.adjustsFontForContentSizeCategory = true
+
         detailLabel.numberOfLines = 0
-        
-        dateLabel.font = CustomScaleFont.customFont(forStyle: .footnote)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         hStack.axis = .horizontal

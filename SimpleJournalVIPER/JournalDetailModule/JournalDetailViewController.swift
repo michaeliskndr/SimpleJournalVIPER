@@ -12,10 +12,10 @@ class JournalDetailViewController: UIViewController {
     
     private let vStack = UIStackView()
     private let hStack = UIStackView()
-    private let titleLabel = UILabel()
-    private let detailLabel = UILabel()
-    private let dateLabel = UILabel()
-    private let moodLabel = UILabel()
+    private let titleLabel = UILabel(forTextStyle: .title1)
+    private let moodLabel = UILabel(forTextStyle: .title1)
+    private let dateLabel = UILabel(forTextStyle: .caption1)
+    private let detailLabel = UILabel(forTextStyle: .body)
     private let scrollView = UIScrollView(frame: .zero)
     
     public var presenter: JournalDetailPresenterProtocol
@@ -46,18 +46,7 @@ class JournalDetailViewController: UIViewController {
     }
     
     private func setupViews() {
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        titleLabel.adjustsFontForContentSizeCategory = true
-        
-        moodLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        moodLabel.adjustsFontForContentSizeCategory = true
-        
-        detailLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        detailLabel.adjustsFontForContentSizeCategory = true
         detailLabel.numberOfLines = 0
-        
-        dateLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
-        dateLabel.adjustsFontForContentSizeCategory = true
         
         hStack.axis = .horizontal
         hStack.spacing = 8

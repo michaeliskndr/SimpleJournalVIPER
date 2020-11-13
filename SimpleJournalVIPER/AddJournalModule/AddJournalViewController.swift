@@ -10,21 +10,52 @@ import UIKit
 
 class AddJournalViewController: UIViewController {
 
+    private let titleLabel = UILabel(forTextStyle: .largeTitle)
+    private let titleTextField = UITextField()
+    private let detaiLabel = UILabel()
+    private let detailTextView = UITextView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupViews()
+        setupLayouts()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupViews() {
+//        titleLabel.font = CustomScaleFont.customFont(forStyle: .headline)
+//        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.text = "Hello World"
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
     }
-    */
-
+    
+    private func setupLayouts() {
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
 }
+
+
+#if DEBUG
+import SwiftUI
+
+struct AddJournalViewControllerRepresentable: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    }
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let viewController = AddJournalViewController()
+        return viewController
+    }
+}
+
+struct AddJournalViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        return AddJournalViewControllerRepresentable()
+    }
+}
+
+#endif

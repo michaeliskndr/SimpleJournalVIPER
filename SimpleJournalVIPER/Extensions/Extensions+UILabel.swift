@@ -6,4 +6,12 @@
 //  Copyright © 2020 Michael Iskandar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UILabel {
+    convenience init(forTextStyle style: UIFont.TextStyle) {
+        self.init(frame: .zero)
+        font = CustomScaleFont.customFont(forStyle: style)
+        adjustsFontForContentSizeCategory = true
+    }
+}
