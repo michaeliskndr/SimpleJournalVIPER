@@ -131,6 +131,7 @@ struct MainListViewControllerRepresentable: UIViewControllerRepresentable {
 struct MainListViewController_Previews: PreviewProvider {
     static var previews: some View {
         return MainListViewControllerRepresentable()
+            .environment(\.sizeCategory, ContentSizeCategory.extraExtraExtraLarge)
     }
 }
 

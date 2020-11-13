@@ -132,7 +132,9 @@ struct JournalCellRepresentable_Previews: PreviewProvider {
         let itemWidth: CGFloat = UIScreen.main.bounds.width - 32
         let itemHeight: CGFloat = 180
         
-        return JournalCellRepresentable().frame(minWidth: 0, idealWidth: itemWidth, maxWidth: itemWidth, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: itemHeight, maxHeight: itemHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        return JournalCellRepresentable()
+            .frame(minWidth: 0, idealWidth: itemWidth, maxWidth: itemWidth, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: itemHeight, maxHeight: itemHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .environment(\.sizeCategory, ContentSizeCategory.large)
     }
 }
 #endif
