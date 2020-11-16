@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JournalDetailInteractor: JournalDetailInteractorProtocol {
+final class JournalDetailInteractor: JournalDetailInteractorProtocol {
     
     var journal: JournalItem?
     

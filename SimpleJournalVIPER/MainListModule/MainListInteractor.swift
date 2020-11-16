@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MainListInteractor: MainListInteractorProtocol {
+final class MainListInteractor: MainListInteractorProtocol {
     
     private let store = JournalStore.shared
     init() { }

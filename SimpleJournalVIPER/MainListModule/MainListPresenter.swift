@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainListPresenter: MainListPresenterProtocol {
+final class MainListPresenter: MainListPresenterProtocol {
 
     var router: MainListRouterProtocol?
     var interactor: MainListInteractorProtocol?

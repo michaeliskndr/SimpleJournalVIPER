@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class JournalDetailRouter: JournalDetailRouterProtocol {
+final class JournalDetailRouter: JournalDetailRouterProtocol {
     
     static func createJournalDetailModule(with item: JournalItem) -> JournalDetailViewController {
         let interactor = JournalDetailInteractor()

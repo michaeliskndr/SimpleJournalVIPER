@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainListRouter: MainListRouterProtocol {
+final class MainListRouter: MainListRouterProtocol {
     
     static func createMainListModule() -> UIViewController {
         let interactor = MainListInteractor()
