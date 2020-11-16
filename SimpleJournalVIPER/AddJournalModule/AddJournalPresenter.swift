@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+final class AddJournalPresenter: AddJournalPresenterProtocol {
+    
+    var interactor: AddJournalInteractorProtocol?
+    
+    var router: AddJournalRouterProtocol?
+    
+    var reload: (() -> ())?
+    
+    
+    
+}

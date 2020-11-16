@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+final class AddJournalInteractor: AddJournalInteractorProtocol {
+    
+    var journal: JournalItem?
+    var store = JournalStore.shared
+    
+    func addJournal(_ item: JournalItem) {
+        <#code#>
+    }
+    
+}

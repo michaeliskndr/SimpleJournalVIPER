@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+protocol AddJournalPresenterProtocol {
+    
+    var interactor: AddJournalInteractorProtocol? { get set }
+    var router: AddJournalRouterProtocol? { get set }
+    
+    var reload: (() -> ())? { get set }
+}
+
+protocol AddJournalRouterProtocol {
+    
+    func goBackToMainViewController()
+}
+
+protocol AddJournalInteractorProtocol {
+    
+    var journal: JournalItem? { get set }
+    func addJournal(_ item: JournalItem)
+}
+
+

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+final class AddJournalRouter: AddJournalRouterProtocol {
+    
+    func goBackToMainViewController() {
+        <#code#>
+    }
+}
