@@ -14,7 +14,6 @@ final class AddJournalInteractor: AddJournalInteractorProtocol {
     var store = JournalStore.shared
     
     func addJournal(_ item: JournalItem) {
-        <#code#>
     }
     
 }

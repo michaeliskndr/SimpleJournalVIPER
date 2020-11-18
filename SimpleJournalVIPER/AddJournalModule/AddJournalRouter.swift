@@ -6,11 +6,19 @@
 //  Copyright © 2020 Michael Iskandar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class AddJournalRouter: AddJournalRouterProtocol {
     
+    static func createAddJournalModule() -> UIViewController {
+        let interactor = AddJournalInteractor()
+        let presenter = AddJournalPresenter()
+        presenter.interactor = interactor
+        presenter.router = AddJournalRouter()
+        let controller = AddJournalViewController(presenter: presenter)
+        return controller
+    }
+    
     func goBackToMainViewController() {
-        <#code#>
     }
 }

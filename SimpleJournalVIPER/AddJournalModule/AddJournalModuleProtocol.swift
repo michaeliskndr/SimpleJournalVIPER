@@ -14,6 +14,11 @@ protocol AddJournalPresenterProtocol {
     var router: AddJournalRouterProtocol? { get set }
     
     var reload: (() -> ())? { get set }
+    
+    var numberOfRows: Int { get }
+    func viewWillAppear()
+    func cellForRow(at indexPath: IndexPath) -> JournalCellPresenter
+    
 }
 
 protocol AddJournalRouterProtocol {
