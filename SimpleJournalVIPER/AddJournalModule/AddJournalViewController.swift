@@ -72,7 +72,7 @@ extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalFormCell", for: indexPath) as! JournalFormCell
         let cellAtRow = presenter.cellForRow(at: indexPath)
         cell.configure(with: cellAtRow)
-        cell.textViewDelegate(delegate: self)
+        cell.textViewDelegate(self)
         return cell
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JournalFormCell: UITableViewCell, UITextViewDelegate {
+class JournalFormCell: UITableViewCell {
     
     private let titleLabel = UILabel(forTextStyle: .headline)
     private var containerView = UIView(frame: .zero)
@@ -80,7 +80,7 @@ class JournalFormCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
-    func textViewDelegate(delegate: UITextViewDelegate?) {
+    func textViewDelegate(_ delegate: UITextViewDelegate?) {
         titleTextView.delegate = delegate
     }
     
