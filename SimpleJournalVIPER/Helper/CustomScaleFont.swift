@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CustomScaleFont {
+final public class CustomScaleFont {
     
     private static let fontDict: [UIFont.TextStyle: UIFont?] = [
         .largeTitle: UIFont(name: "NotoSansJP-Bold", size: 34),
