@@ -80,6 +80,10 @@ class JournalFormCell: UITableViewCell {
         }
     }
     
+    func textFieldDelegate(_ delegate: UITextFieldDelegate?) {
+        titleTextfield.delegate = delegate
+    }
+    
     func textViewDelegate(_ delegate: UITextViewDelegate?) {
         titleTextView.delegate = delegate
     }
