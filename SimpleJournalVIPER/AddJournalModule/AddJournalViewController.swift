@@ -12,6 +12,7 @@ class AddJournalViewController: UIViewController {
 
     private let tableView = UITableView()
     private let presenter: AddJournalPresenter
+    private var activeField: UIView?
     
     init(presenter: AddJournalPresenter) {
         self.presenter = presenter
@@ -27,6 +28,7 @@ class AddJournalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addKeyboardObserver()
         presenter.viewWillAppear()
     }
     
@@ -34,6 +36,11 @@ class AddJournalViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupLayouts()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupViews() {
@@ -73,12 +80,22 @@ extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
         let cellAtRow = presenter.cellForRow(at: indexPath)
         cell.configure(with: cellAtRow)
         cell.textViewDelegate(self)
+        cell.textFieldDelegate(self)
         return cell
     }
     
 }
 
-extension AddJournalViewController: UITextViewDelegate {
+extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+
+    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         textView.scrollRangeToVisible(range)
@@ -86,6 +103,7 @@ extension AddJournalViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        activeField = textView
         if textView.textColor == .lightGray {
             textView.text = ""
             textView.textColor = .black
@@ -93,10 +111,41 @@ extension AddJournalViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        activeField = nil
         if textView.text.isEmpty {
             textView.textColor = .lightGray
             textView.text = "Hello World Test"
         }
+    }
+}
+
+extension AddJournalViewController {
+    
+    func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let userInfoKeyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        let keyboardSize = userInfoKeyboard.cgRectValue.size
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
+        
+        if let activeField = activeField {
+            let visibleRect = tableView.convert(activeField.frame, from: activeField)
+            tableView.scrollRectToVisible(visibleRect, animated: true)
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        tableView.contentInset = .zero
+        tableView.scrollIndicatorInsets = .zero
     }
 }
 
