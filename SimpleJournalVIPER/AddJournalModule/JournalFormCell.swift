@@ -72,11 +72,14 @@ class JournalFormCell: UITableViewCell {
             titleTextView.removeFromSuperview()
         }
         titleLabel.text = presenter.title
-        titleTextfield.placeholder = presenter.titlePlaceholder
+        titleTextfield.text = presenter.subtitle
+        titleTextfield.placeholder = presenter.placeholder
         dateLabel.text = presenter.date
         if titleTextView.text.isEmpty {
-            titleTextView.text = presenter.titlePlaceholder
+            titleTextView.text = presenter.placeholder
             titleTextView.textColor = .lightGray
+        } else {
+            titleTextView.text = presenter.subtitle
         }
     }
     
@@ -123,7 +126,8 @@ struct JournalFormCellRepresentable: UIViewRepresentable {
         cell.configure(with:
             JournalCellPresenter(
                 title: "What is your title today?",
-                titlePlaceholder: "Describe your title today!",
+                subtitle: "",
+                placeholder: "Describe your title today!",
                 type: .detail
             )
         )

@@ -31,6 +31,10 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
         cells[indexPath.row]
     }
     
+    func updateText(_ text: String, at indexPath: IndexPath) {
+        let cellPresenter = cells[indexPath.row]
+        cellPresenter.updateText(text)
+    }
     
 }
 
@@ -60,21 +64,24 @@ struct CellBuilder {
             return
                 JournalCellPresenter(
                     title: "What's your title of the day?",
-                    titlePlaceholder: "Describe your title here!",
+                    subtitle: "",
+                    placeholder: "Describe your title here!",
                     type: .title
                 )
         case .detail:
             return
                 JournalCellPresenter(
                     title: "What's exactly happening today?",
-                    titlePlaceholder: "Describe what's happening here!",
+                    subtitle: "",
+                    placeholder: "Describe what's happening here!",
                     type: .detail
                 )
         case .date:
             return
                 JournalCellPresenter(
                     title: "Today's Date",
-                    titlePlaceholder: "",
+                    subtitle: "",
+                    placeholder: "",
                     type: .date
                 )
         }

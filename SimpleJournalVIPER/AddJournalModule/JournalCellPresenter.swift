@@ -14,13 +14,19 @@ final class JournalCellPresenter {
     }
     
     let title: String
-    let titlePlaceholder: String
+    private(set) var subtitle: String
+    let placeholder: String
     let type: FormType
     let date: String = Date().toString()
     
-    init(title: String, titlePlaceholder: String, type: FormType) {
+    init(title: String, subtitle: String, placeholder: String, type: FormType) {
         self.title = title
-        self.titlePlaceholder = titlePlaceholder
+        self.subtitle = subtitle
+        self.placeholder = placeholder
         self.type = type
+    }
+    
+    func updateText(_ text: String) {
+        subtitle = text
     }
 }

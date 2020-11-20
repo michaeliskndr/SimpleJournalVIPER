@@ -71,6 +71,10 @@ class AddJournalViewController: UIViewController {
 
 extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.numberOfRows
     }
@@ -88,16 +92,46 @@ extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = textField.text else {
+            return false
+        }
+        let text = currentText + string
+        let point = textField.convert(textField.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) {
+            print(indexPath)
+            presenter.updateText(text, at: indexPath)
+        }
+   
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeField = nil
-
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let currentText = textView.text else {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        let text = currentText + text
+        let point = textView.convert(textView.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) {
+            print(indexPath)
+            presenter.updateText(text, at: indexPath)
+        }
+    
         textView.scrollRangeToVisible(range)
         return true
     }
@@ -117,6 +151,7 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
             textView.text = "Hello World Test"
         }
     }
+    
 }
 
 extension AddJournalViewController {
