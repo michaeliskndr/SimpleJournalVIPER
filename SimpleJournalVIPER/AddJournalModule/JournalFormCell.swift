@@ -62,14 +62,14 @@ class JournalFormCell: UITableViewCell {
     func configure(with presenter: JournalCellPresenter) {
         switch presenter.type {
         case .title:
-            dateLabel.removeFromSuperview()
-            titleTextView.removeFromSuperview()
+            dateLabel.isHidden = true
+            titleTextView.isHidden = true
         case .detail:
-            dateLabel.removeFromSuperview()
-            titleTextfield.removeFromSuperview()
+            dateLabel.isHidden = true
+            titleTextfield.isHidden = true
         case .date:
-            titleTextfield.removeFromSuperview()
-            titleTextView.removeFromSuperview()
+            titleTextfield.isHidden = true
+            titleTextView.isHidden = true
         }
         titleLabel.text = presenter.title
         titleTextfield.text = presenter.subtitle
