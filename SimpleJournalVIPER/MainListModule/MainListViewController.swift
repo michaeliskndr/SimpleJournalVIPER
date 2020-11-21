@@ -62,6 +62,7 @@ class MainListViewController: UIViewController {
         ]
         navigationController?.navigationBar.titleTextAttributes = attrs
         navigationController?.navigationBar.largeTitleTextAttributes = largeAttrs
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAdd))
     }
     
     private func setupCollectionViewLayout() {
@@ -75,6 +76,10 @@ class MainListViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
+    }
+    
+    @objc func tappedAdd() {
+        presenter.goToAddJournal(from: self)
     }
     
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 final class MainListRouter: MainListRouterProtocol {
+
+    private let modalNavigationController = UINavigationController()
     
     static func createMainListModule() -> UIViewController {
         let interactor = MainListInteractor()
@@ -25,6 +27,11 @@ final class MainListRouter: MainListRouterProtocol {
         let detailController = JournalDetailRouter.createJournalDetailModule(with: item)
         view.navigationController?.pushViewController(detailController, animated: true)
         
+    }
+    
+    func presentToAddJournal(from view: UIViewController) {
+        let addJournalController = AddJournalRouter.createAddJournalModule()
+        view.navigationController?.present(addJournalController, animated: true)
     }
     
     

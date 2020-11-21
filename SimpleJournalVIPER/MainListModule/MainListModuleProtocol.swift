@@ -19,7 +19,7 @@ protocol MainListPresenterProtocol {
     func viewWillAppear()
     func itemForRow(_ indexPath: IndexPath) -> JournalItem
     func goToDetail(from view: UIViewController, at indexPath: IndexPath)
-
+    func goToAddJournal(from view: UIViewController)
 }
 
 protocol MainListRouterProtocol {
@@ -27,7 +27,7 @@ protocol MainListRouterProtocol {
     static func createMainListModule() -> UIViewController
     
     func presentToDetailJournal(from view: UIViewController, item: JournalItem)
-    
+    func presentToAddJournal(from view: UIViewController)
 }
 
 protocol MainListInteractorProtocol {

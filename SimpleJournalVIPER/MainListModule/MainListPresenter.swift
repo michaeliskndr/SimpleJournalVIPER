@@ -41,4 +41,8 @@ final class MainListPresenter: MainListPresenterProtocol {
         router.presentToDetailJournal(from: view, item: item)
     }
     
+    func goToAddJournal(from view: UIViewController) {
+        guard let router = router else { fatalError("Router doesnt exist") }
+        router.presentToAddJournal(from: view)
+    }
 }
