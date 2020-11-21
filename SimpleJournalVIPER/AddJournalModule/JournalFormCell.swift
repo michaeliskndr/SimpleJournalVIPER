@@ -11,10 +11,16 @@ import UIKit
 class JournalFormCell: UITableViewCell {
     
     private let titleLabel = UILabel(forTextStyle: .headline)
-    private var containerView = UIView(frame: .zero)
     private let titleTextfield = CustomTextField(insetX: 8, insetY: 8)
     private let titleTextView = UITextView(frame: .zero, textContainer: nil)
     private let dateLabel = UILabel(forTextStyle: .subheadline)
+    private let toolBar = UIToolbar(frame: .init(x: 0, y: 0, width: 40, height: 40))
+    private lazy var doneBarButtonItem: UIBarButtonItem = {
+        UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
+    }()
+    private lazy var flexibleSpace: UIBarButtonItem = {
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    }()
     private let vStack = UIStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -44,22 +50,24 @@ class JournalFormCell: UITableViewCell {
         titleTextView.textContainerInset = .init(top: 8, left: 8, bottom: 0, right: 0)
         titleTextView.textContainer.lineFragmentPadding = 0
         titleTextView.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.setItems([flexibleSpace, doneBarButtonItem], animated: false)
+        titleTextView.inputAccessoryView = toolBar
         
         vStack.axis = .vertical
         vStack.spacing = 4
         vStack.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .red
-        vStack.addArrangedSubview(titleLabel)
-        vStack.addArrangedSubview(titleTextfield)
-        vStack.addArrangedSubview(titleTextView)
-        vStack.addArrangedSubview(dateLabel)
+        [titleLabel, titleTextfield, titleTextView, dateLabel].forEach { vStack.addArrangedSubview($0) }
+
         contentView.addSubview(vStack)
 
     }
     
     func configure(with presenter: JournalCellPresenter) {
+        titleLabel.text = presenter.title
+        titleTextfield.text = presenter.subtitle
+        titleTextfield.placeholder = presenter.placeholder
+        dateLabel.text = presenter.date
         switch presenter.type {
         case .title:
             dateLabel.isHidden = true
@@ -71,10 +79,6 @@ class JournalFormCell: UITableViewCell {
             titleTextfield.isHidden = true
             titleTextView.isHidden = true
         }
-        titleLabel.text = presenter.title
-        titleTextfield.text = presenter.subtitle
-        titleTextfield.placeholder = presenter.placeholder
-        dateLabel.text = presenter.date
         if titleTextView.text.isEmpty {
             titleTextView.text = presenter.placeholder
             titleTextView.textColor = .lightGray
@@ -89,6 +93,10 @@ class JournalFormCell: UITableViewCell {
     
     func textViewDelegate(_ delegate: UITextViewDelegate?) {
         titleTextView.delegate = delegate
+    }
+    
+    @objc func tappedDone() {
+        titleTextView.resignFirstResponder()
     }
     
     private func setupLayout() {

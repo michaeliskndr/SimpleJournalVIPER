@@ -9,7 +9,7 @@
 import UIKit
 
 class AddJournalViewController: UIViewController {
-
+    
     private let tableView = UITableView()
     private let presenter: AddJournalPresenter
     private var activeField: UIView?
@@ -102,7 +102,7 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
             print(indexPath)
             presenter.updateText(text, at: indexPath)
         }
-   
+        
         return true
     }
     
@@ -131,7 +131,7 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
             print(indexPath)
             presenter.updateText(text, at: indexPath)
         }
-    
+        
         textView.scrollRangeToVisible(range)
         return true
     }
