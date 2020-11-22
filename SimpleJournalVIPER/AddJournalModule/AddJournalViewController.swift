@@ -51,7 +51,6 @@ class AddJournalViewController: UIViewController {
         tableView.separatorInset = .zero
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
-        
         navigationItem.title = "Hello"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(JournalFormCell.self, forCellReuseIdentifier: "JournalFormCell")
