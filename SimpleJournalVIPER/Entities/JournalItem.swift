@@ -28,6 +28,16 @@ struct JournalItem: Hashable {
                 case .sad: return "😨"
                 }
             }
+            
+            init(value: Double) {
+                switch value {
+                case 0..<25: self = Mood.cry
+                case 25..<50: self = Mood.sad
+                case 50..<75: self = Mood.joy
+                case 75..<100: self = Mood.happy
+                default: self = Mood.joy
+                }
+            }
         }
         
         let happiness: Double

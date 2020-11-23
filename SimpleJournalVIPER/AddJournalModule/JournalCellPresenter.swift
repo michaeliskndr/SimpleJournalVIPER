@@ -10,7 +10,7 @@ import Foundation
 
 final class JournalCellPresenter {
     enum FormType {
-        case title, detail, date
+        case title, detail, date, mood
     }
     
     let title: String
@@ -18,6 +18,10 @@ final class JournalCellPresenter {
     let placeholder: String
     let type: FormType
     let date: Date = Date()
+    private(set) var happiness: Double = 50
+    var floatHappiness: Float {
+        return Float(happiness)
+    }
     var dateString: String {
         return date.toString()
     }
@@ -31,5 +35,9 @@ final class JournalCellPresenter {
     
     func updateText(_ text: String) {
         subtitle = text
+    }
+    
+    func update(_ value: Double) {
+        happiness = value
     }
 }

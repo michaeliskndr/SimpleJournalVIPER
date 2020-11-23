@@ -21,7 +21,10 @@ class JournalFormCell: UITableViewCell {
     private lazy var flexibleSpace: UIBarButtonItem = {
         UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }()
+    private let slider: UISlider = UISlider(frame: .zero)
     private let vStack = UIStackView()
+    
+    private var presenter: JournalCellPresenter?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,27 +60,41 @@ class JournalFormCell: UITableViewCell {
         vStack.spacing = 4
         vStack.translatesAutoresizingMaskIntoConstraints = false
         
-        [titleLabel, titleTextfield, titleTextView, dateLabel].forEach { vStack.addArrangedSubview($0) }
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.isContinuous = true
+        slider.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+    
+        [titleLabel, titleTextfield, titleTextView, slider, dateLabel].forEach { vStack.addArrangedSubview($0) }
 
         contentView.addSubview(vStack)
 
     }
     
     func configure(with presenter: JournalCellPresenter) {
+        self.presenter = presenter
         titleLabel.text = presenter.title
         titleTextfield.text = presenter.subtitle
         titleTextfield.placeholder = presenter.placeholder
         dateLabel.text = presenter.dateString
+        slider.value = presenter.floatHappiness
         switch presenter.type {
         case .title:
             dateLabel.isHidden = true
             titleTextView.isHidden = true
+            slider.isHidden = true
         case .detail:
             dateLabel.isHidden = true
             titleTextfield.isHidden = true
+            slider.isHidden = true
         case .date:
             titleTextfield.isHidden = true
             titleTextView.isHidden = true
+            slider.isHidden = true
+        case .mood:
+            titleTextfield.isHidden = true
+            titleTextView.isHidden = true
+            dateLabel.isHidden = true
         }
         if titleTextView.text.isEmpty {
             titleTextView.text = presenter.placeholder
@@ -93,6 +110,11 @@ class JournalFormCell: UITableViewCell {
     
     func textViewDelegate(_ delegate: UITextViewDelegate?) {
         titleTextView.delegate = delegate
+    }
+    
+    @objc func valueChanged(_ sender: UISlider) {
+        let happiness = Double(sender.value)
+        presenter?.update(happiness)
     }
     
     @objc func tappedDone() {

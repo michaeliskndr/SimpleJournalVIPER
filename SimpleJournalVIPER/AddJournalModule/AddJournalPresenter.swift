@@ -22,6 +22,7 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
     private var titleCellPresenter: JournalCellPresenter?
     private var detailCellPresenter: JournalCellPresenter?
     private var dateCellPresenter: JournalCellPresenter?
+    private var moodCellPresenter: JournalCellPresenter?
 
     var numberOfRows: Int {
         return cells.count
@@ -42,11 +43,11 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
     
     //TODO: ADD JOURNAL CAPABILIITES NOT YET IMPLEMENTED
     func didAddJournal(from view: UIViewController) {
-        guard let title = titleCellPresenter?.subtitle, let detail = detailCellPresenter?.subtitle, let date = titleCellPresenter?.date else {
+        guard let title = titleCellPresenter?.subtitle, let detail = detailCellPresenter?.subtitle, let date = titleCellPresenter?.date, let mood = moodCellPresenter?.happiness else {
             print("Empty JournalItem Data")
             return
         }
-        let item = JournalItem(title: title, date: date, detail: detail, mood: .init(happiness: 98.5, mood: .happy))
+        let item = JournalItem(title: title, date: date, detail: detail, mood: .init(happiness: mood, mood: .init(value: mood)))
         interactor?.addJournal(item)
         router?.goBackToMainViewController(from: view)
     }
@@ -63,13 +64,14 @@ extension AddJournalPresenter {
         titleCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .title)
         detailCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .detail)
         dateCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .date)
+        moodCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .mood)
         
-        guard let titleCell = titleCellPresenter, let detailCell = detailCellPresenter, let dateCell = dateCellPresenter else {
+        guard let titleCell = titleCellPresenter, let detailCell = detailCellPresenter, let dateCell = dateCellPresenter, let moodCell = moodCellPresenter else {
             return
         }
         
         cells = [
-            titleCell, detailCell, dateCell
+            titleCell, detailCell, moodCell, dateCell
         ]
         
         reload()
@@ -103,6 +105,14 @@ struct CellBuilder {
                     subtitle: "",
                     placeholder: "",
                     type: .date
+                )
+        case .mood:
+            return
+                JournalCellPresenter(
+                    title: "Quantify your happiness!",
+                    subtitle: "",
+                    placeholder: "",
+                    type: .mood
                 )
         }
     }
