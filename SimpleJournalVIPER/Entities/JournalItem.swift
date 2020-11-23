@@ -10,7 +10,7 @@ import Foundation
 
 struct JournalItem: Hashable {
 
-    private let id: Int
+    private var id: Int = 0
     let title: String
     let date: Date
     let detail: String
@@ -34,8 +34,8 @@ struct JournalItem: Hashable {
         let mood: Mood
     }
     
-    init(id: Int, title: String, date: Date, detail: String, mood: Mood) {
-        self.id = id
+    init(title: String, date: Date, detail: String, mood: Mood) {
+        self.id = self.id + 1
         self.title = title
         self.date = date
         self.detail = detail

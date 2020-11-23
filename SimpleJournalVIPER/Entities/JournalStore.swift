@@ -14,16 +14,16 @@ public class JournalStore {
     private init() { }
 
     private(set) var journals: [JournalItem] = [
-        JournalItem(id: 0, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(id: 1, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(id: 2, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .sad)),
-        JournalItem(id: 3, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(id: 4, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern, even though im new. its kinda fun to know new things", mood: JournalItem.Mood(happiness: 98.5, mood: .joy)),
-        JournalItem(id: 5, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .sad)),
-        JournalItem(id: 6, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(id: 7, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(id: 8, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .sad)),
-        JournalItem(id: 9, title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern, even though im new. its kinda fun to know new things", mood: JournalItem.Mood(happiness: 98.5, mood: .joy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
+        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry))
     ]
     
     func addJournal(_ journal: JournalItem) {

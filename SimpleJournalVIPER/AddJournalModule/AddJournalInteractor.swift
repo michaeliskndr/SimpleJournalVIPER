@@ -10,10 +10,10 @@ import Foundation
 
 final class AddJournalInteractor: AddJournalInteractorProtocol {
     
-    var journal: JournalItem?
-    var store = JournalStore.shared
+    var parentInteractor: MainListInteractorProtocol?
     
     func addJournal(_ item: JournalItem) {
+        parentInteractor?.addJournal(item)
     }
     
 }

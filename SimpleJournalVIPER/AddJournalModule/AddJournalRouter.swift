@@ -12,6 +12,7 @@ final class AddJournalRouter: AddJournalRouterProtocol {
     
     static func createAddJournalModule() -> UIViewController {
         let interactor = AddJournalInteractor()
+        interactor.parentInteractor = MainListInteractor.shared
         let presenter = AddJournalPresenter()
         presenter.interactor = interactor
         presenter.router = AddJournalRouter()
@@ -19,6 +20,7 @@ final class AddJournalRouter: AddJournalRouterProtocol {
         return controller
     }
     
-    func goBackToMainViewController() {
+    func goBackToMainViewController(from view: UIViewController) {
+        view.dismiss(animated: true, completion: nil)
     }
 }

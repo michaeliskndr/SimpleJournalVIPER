@@ -17,7 +17,10 @@ final class JournalCellPresenter {
     private(set) var subtitle: String
     let placeholder: String
     let type: FormType
-    let date: String = Date().toString()
+    let date: Date = Date()
+    var dateString: String {
+        return date.toString()
+    }
     
     init(title: String, subtitle: String, placeholder: String, type: FormType) {
         self.title = title

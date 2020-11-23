@@ -6,7 +6,7 @@
 //  Copyright © 2020 Michael Iskandar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AddJournalPresenterProtocol {
     
@@ -23,12 +23,12 @@ protocol AddJournalPresenterProtocol {
 
 protocol AddJournalRouterProtocol {
     
-    func goBackToMainViewController()
+    func goBackToMainViewController(from view: UIViewController)
 }
 
 protocol AddJournalInteractorProtocol {
     
-    var journal: JournalItem? { get set }
+    var parentInteractor: MainListInteractorProtocol? { get set }
     func addJournal(_ item: JournalItem)
 }
 

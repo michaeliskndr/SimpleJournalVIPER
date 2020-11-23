@@ -28,7 +28,7 @@ class MainListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        presenter.viewWillAppear()
     }
     
     override func viewDidLoad() {
@@ -36,8 +36,6 @@ class MainListViewController: UIViewController {
         setupNavigationBar()
         setupViews()
         setupCollectionViewLayout()
-        presenter.viewWillAppear()
-
     }
     
     private func setupViews() {
@@ -63,6 +61,7 @@ class MainListViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = attrs
         navigationController?.navigationBar.largeTitleTextAttributes = largeAttrs
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAdd))
+
     }
     
     private func setupCollectionViewLayout() {

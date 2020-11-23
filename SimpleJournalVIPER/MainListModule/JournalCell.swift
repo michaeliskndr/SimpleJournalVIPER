@@ -103,7 +103,7 @@ import SwiftUI
 
 struct JournalCellRepresentable: UIViewRepresentable {
     
-    let item = JournalItem(id: 5, title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: .happy))
+    let item = JournalItem(title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: .happy))
     
     func updateUIView(_ uiView: JournalCell, context: Context) {
     }

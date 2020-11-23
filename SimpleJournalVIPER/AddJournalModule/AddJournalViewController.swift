@@ -35,6 +35,7 @@ class AddJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupNavigation()
         setupLayouts()
     }
     
@@ -51,10 +52,14 @@ class AddJournalViewController: UIViewController {
         tableView.separatorInset = .zero
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
-        navigationItem.title = "Hello"
-        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(JournalFormCell.self, forCellReuseIdentifier: "JournalFormCell")
         view.addSubview(tableView)
+    }
+    
+    private func setupNavigation() {
+        navigationItem.title = "Hello"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedAdd))
     }
     
     private func setupLayouts() {
@@ -64,6 +69,10 @@ class AddJournalViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
+    }
+    
+    @objc func tappedAdd() {
+        presenter.didAddJournal(from: self)
     }
     
 }

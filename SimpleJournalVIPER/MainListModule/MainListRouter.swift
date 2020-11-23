@@ -13,12 +13,12 @@ final class MainListRouter: MainListRouterProtocol {
     private var modalNavigationController: UINavigationController?
     
     static func createMainListModule() -> UIViewController {
-        let interactor = MainListInteractor()
+        let interactor = MainListInteractor.shared
         let presenter = MainListPresenter()
         presenter.interactor = interactor
         presenter.router = MainListRouter()
         let vc = MainListViewController(presenter: presenter)
-        
+        interactor.reload = presenter.reload
         return vc
     }
     

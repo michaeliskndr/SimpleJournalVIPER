@@ -6,7 +6,7 @@
 //  Copyright © 2020 Michael Iskandar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class AddJournalPresenter: AddJournalPresenterProtocol {
     
@@ -18,6 +18,10 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
     
     var cells: [JournalCellPresenter] = []
     var cellBuilder: CellBuilder = CellBuilder()
+    
+    private var titleCellPresenter: JournalCellPresenter?
+    private var detailCellPresenter: JournalCellPresenter?
+    private var dateCellPresenter: JournalCellPresenter?
 
     var numberOfRows: Int {
         return cells.count
@@ -36,6 +40,17 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
         cellPresenter.updateText(text)
     }
     
+    //TODO: ADD JOURNAL CAPABILIITES NOT YET IMPLEMENTED
+    func didAddJournal(from view: UIViewController) {
+        guard let title = titleCellPresenter?.subtitle, let detail = detailCellPresenter?.subtitle, let date = titleCellPresenter?.date else {
+            print("Empty JournalItem Data")
+            return
+        }
+        let item = JournalItem(title: title, date: date, detail: detail, mood: .init(happiness: 98.5, mood: .happy))
+        interactor?.addJournal(item)
+        router?.goBackToMainViewController(from: view)
+    }
+    
 }
 
 extension AddJournalPresenter {
@@ -45,13 +60,18 @@ extension AddJournalPresenter {
             fatalError("Reload function not yet existed")
         }
         
-        let titleCell = cellBuilder.makeJournalCellPresenter(cellType: .title)
-        let detailCell = cellBuilder.makeJournalCellPresenter(cellType: .detail)
-        let dateCell = cellBuilder.makeJournalCellPresenter(cellType: .date)
+        titleCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .title)
+        detailCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .detail)
+        dateCellPresenter = cellBuilder.makeJournalCellPresenter(cellType: .date)
+        
+        guard let titleCell = titleCellPresenter, let detailCell = detailCellPresenter, let dateCell = dateCellPresenter else {
+            return
+        }
         
         cells = [
             titleCell, detailCell, dateCell
         ]
+        
         reload()
     }
 }

@@ -67,7 +67,7 @@ class JournalFormCell: UITableViewCell {
         titleLabel.text = presenter.title
         titleTextfield.text = presenter.subtitle
         titleTextfield.placeholder = presenter.placeholder
-        dateLabel.text = presenter.date
+        dateLabel.text = presenter.dateString
         switch presenter.type {
         case .title:
             dateLabel.isHidden = true

@@ -118,7 +118,7 @@ struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct JournalDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        return JournalDetailViewControllerRepresentable(item: JournalItem(id: 5, title: "Hello", date: Date(), detail: "hehehehehehehe", mood: .init(happiness: 98.5, mood: .cry)))
+        return JournalDetailViewControllerRepresentable(item: JournalItem(title: "Hello", date: Date(), detail: "hehehehehehehe", mood: .init(happiness: 98.5, mood: .cry)))
     }
 }
 #endif
