@@ -15,16 +15,16 @@ final class MainListInteractor: MainListInteractorProtocol {
     var reload: (() -> ())?
     init() { }
     
-    var journals: [JournalItem] {
-        return store.journals
+    var journals: [Journal] {
+        return store.getJournals()
     }
     
-    func retrieveJournals() -> [JournalItem] {
+    func retrieveJournals() -> [Journal] {
         return journals
     }
     
     func addJournal(_ item: JournalItem) {
-        store.addJournal(item)
+        store.save(item)
         guard let reload = reload else {
             print("Reload function is empty")
             return
@@ -32,7 +32,8 @@ final class MainListInteractor: MainListInteractorProtocol {
         reload()
     }
     
-    func removeJournal(_ item: JournalItem) {
-        store.removeJournal(item)
+    //TODO: REMOVE JOURNAL FROM COREDATA
+    func removeJournal(_ item: Journal) {
+//        store.removeJournal(item)
     }
 }

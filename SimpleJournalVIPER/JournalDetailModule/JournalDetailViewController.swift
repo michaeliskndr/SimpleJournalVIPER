@@ -73,11 +73,11 @@ class JournalDetailViewController: UIViewController {
     }
     
     
-    private func configure(with item: JournalItem) {
+    private func configure(with item: Journal) {
         titleLabel.text = item.title
         detailLabel.text = item.detail
-        dateLabel.text = item.date.toString()
-        moodLabel.text = item.mood.mood.emoji
+        dateLabel.text = item.date?.toString()
+        moodLabel.text = item.mood?.mood
     }
     
     private func setupLayout() {
@@ -104,7 +104,7 @@ import SwiftUI
 
 struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
     
-    let item: JournalItem
+    let item: Journal
     
     func updateUIViewController(_ uiViewController: JournalDetailViewController, context: Context) {
     }
@@ -118,7 +118,7 @@ struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct JournalDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        return JournalDetailViewControllerRepresentable(item: JournalItem(title: "Hello", date: Date(), detail: "hehehehehehehe", mood: .init(happiness: 98.5, mood: .cry)))
+        return JournalDetailViewControllerRepresentable(item: Journal(context: CoreDataManager.shared.moc))
     }
 }
 #endif

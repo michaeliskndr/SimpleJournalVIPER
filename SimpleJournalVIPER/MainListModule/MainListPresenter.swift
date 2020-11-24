@@ -15,7 +15,7 @@ final class MainListPresenter: MainListPresenterProtocol {
     
     var reload: (() -> ())?
 
-    private var journals: [JournalItem] {
+    private var journals: [Journal] {
         return interactor?.retrieveJournals() ?? []
     }
     
@@ -30,7 +30,7 @@ final class MainListPresenter: MainListPresenterProtocol {
         reload()
     }
     
-    func itemForRow(_ indexPath: IndexPath) -> JournalItem {
+    func itemForRow(_ indexPath: IndexPath) -> Journal {
         journals[indexPath.item]
     }
     

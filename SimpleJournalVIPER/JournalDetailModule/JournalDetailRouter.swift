@@ -11,9 +11,8 @@ import UIKit
 
 final class JournalDetailRouter: JournalDetailRouterProtocol {
     
-    static func createJournalDetailModule(with item: JournalItem) -> JournalDetailViewController {
-        let interactor = JournalDetailInteractor()
-        interactor.journal = item
+    static func createJournalDetailModule(with item: Journal) -> JournalDetailViewController {
+        let interactor = JournalDetailInteractor(journal: item)
         
         let presenter = JournalDetailPresenter()
         presenter.interactor = interactor

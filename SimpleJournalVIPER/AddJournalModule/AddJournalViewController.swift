@@ -107,7 +107,6 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
         let text = currentText + string
         let point = textField.convert(textField.bounds.origin, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: point) {
-            print(indexPath)
             presenter.updateText(text, at: indexPath)
         }
         
@@ -136,7 +135,6 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
         let text = currentText + text
         let point = textView.convert(textView.bounds.origin, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: point) {
-            print(indexPath)
             presenter.updateText(text, at: indexPath)
         }
         

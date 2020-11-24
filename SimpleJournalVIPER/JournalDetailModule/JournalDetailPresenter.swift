@@ -14,7 +14,7 @@ final class JournalDetailPresenter: JournalDetailPresenterProtocol {
     
     var router: JournalDetailRouterProtocol?
     
-    var reload: ((JournalItem) -> ())?
+    var reload: ((Journal) -> ())?
     
     func viewWillAppear() {
         guard let reload = reload else { fatalError("Reload Function Not Exist") }

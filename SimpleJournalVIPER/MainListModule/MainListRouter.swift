@@ -23,7 +23,7 @@ final class MainListRouter: MainListRouterProtocol {
     }
     
     //TODO: IMPLEMENT DETAIL VC
-    func presentToDetailJournal(from view: UIViewController, item: JournalItem) {
+    func presentToDetailJournal(from view: UIViewController, item: Journal) {
         let detailController = JournalDetailRouter.createJournalDetailModule(with: item)
         view.navigationController?.pushViewController(detailController, animated: true)
         

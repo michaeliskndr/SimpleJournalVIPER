@@ -7,35 +7,44 @@
 //
 
 import Foundation
+import CoreData
 
 public class JournalStore {
     
     public static let shared = JournalStore()
-    private init() { }
-
-    private(set) var journals: [JournalItem] = [
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .happy)),
-        JournalItem(title: "Today is the day", date: Date(), detail: "I have fun playing with VIPER design pattern", mood: JournalItem.Mood(happiness: 98.5, mood: .cry))
-    ]
     
-    func addJournal(_ journal: JournalItem) {
-        journals.append(journal)
+    private let coreDataManager = CoreDataManager.shared
+    private init() { }
+    
+    func save(_ item: JournalItem) {
+        //TODO: THIS IS ONLY ADD MODEL NOT EDIT
+        let journal = Journal(context: coreDataManager.moc)
+        configure(in: journal, with: item)
+        coreDataManager.saveContext()
+        print("Add Successful")
     }
     
-    func removeJournal(_ journal: JournalItem) {
-        if let index = journals.firstIndex(where: { journalItem in
-            journalItem == journal
-        }) {
-            journals.remove(at: index)
-        }
+    func getJournals() -> [Journal] {
+        coreDataManager.getAll()
+    }
+    
+    func getJournal(at id: NSManagedObjectID) -> Journal? {
+        coreDataManager.getItem(at: id)
+    }
+    
+    func deleteJournal(at id: NSManagedObjectID) {
+        coreDataManager.deleteItem(at: id)
+    }
+    
+    private func configure(in journal: Journal, with item: JournalItem) {
+        journal.id = Int16(item.uniqueID())
+        journal.title = item.title
+        journal.detail = item.detail
+        journal.date = item.date
+        journal.mood = Mood(context: coreDataManager.moc)
+        journal.mood?.happiness = item.mood.happiness
+        journal.mood?.mood = item.mood.mood.emoji
+        
     }
 }
 

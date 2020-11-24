@@ -14,7 +14,7 @@ protocol JournalDetailPresenterProtocol {
     var interactor: JournalDetailInteractorProtocol? { get set }
     var router: JournalDetailRouterProtocol? { get set }
     
-    var reload: ((JournalItem) -> ())? { get set }
+    var reload: ((Journal) -> ())? { get set }
     
     func viewWillAppear()
 
@@ -22,14 +22,14 @@ protocol JournalDetailPresenterProtocol {
 
 protocol JournalDetailInteractorProtocol {
     
-    var journal: JournalItem? { get set }
+    var journal: Journal { get set }
     
-    func getJournal() -> JournalItem
+    func getJournal() -> Journal
 }
 
 protocol JournalDetailRouterProtocol {
     
-    static func createJournalDetailModule(with item: JournalItem) -> JournalDetailViewController
+    static func createJournalDetailModule(with item: Journal) -> JournalDetailViewController
     
     func navigateBackToViewController(from view: UIViewController)
 }

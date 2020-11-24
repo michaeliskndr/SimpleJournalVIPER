@@ -10,10 +10,13 @@ import Foundation
 
 final class JournalDetailInteractor: JournalDetailInteractorProtocol {
     
-    var journal: JournalItem?
-    
-    func getJournal() -> JournalItem {
-        return journal ?? JournalItem(title: "Not Exist", date: Date(), detail: "Data not found", mood: .init(happiness: 0, mood: .sad))
+    var journal: Journal
+        
+    func getJournal() -> Journal {
+        return journal
     }
     
+    init(journal: Journal) {
+        self.journal = journal
+    }
 }

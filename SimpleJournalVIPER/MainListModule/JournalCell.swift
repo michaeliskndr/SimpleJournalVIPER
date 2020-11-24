@@ -69,12 +69,12 @@ class JournalCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with item: JournalItem) {
+    func configure(with item: Journal) {
         titleLabel.text = item.title
         detailLabel.text = item.detail
-        let dateString = item.date.toString()
+        let dateString = item.date?.toString()
         dateLabel.text = dateString
-        moodLabel.text = item.mood.mood.emoji
+        moodLabel.text = item.mood?.mood
     }
     
     override func layoutSubviews() {
@@ -103,8 +103,7 @@ import SwiftUI
 
 struct JournalCellRepresentable: UIViewRepresentable {
     
-    let item = JournalItem(title: "Hello World", date: Date(), detail: "Heheheheheeh HeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheehHeheheheheeh i delete shit", mood: .init(happiness: 98.5, mood: .happy))
-    
+    let item = Journal(context: CoreDataManager.shared.moc)
     func updateUIView(_ uiView: JournalCell, context: Context) {
     }
     

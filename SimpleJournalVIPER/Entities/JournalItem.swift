@@ -10,7 +10,7 @@ import Foundation
 
 struct JournalItem: Hashable {
 
-    private var id: Int = 0
+    private(set) static var id: Int = 0
     let title: String
     let date: Date
     let detail: String
@@ -45,22 +45,25 @@ struct JournalItem: Hashable {
     }
     
     init(title: String, date: Date, detail: String, mood: Mood) {
-        self.id = self.id + 1
+        JournalItem.id = JournalItem.id + 1
         self.title = title
         self.date = date
         self.detail = detail
         self.mood = mood
     }
     
+    func uniqueID() -> Int {
+        return JournalItem.id
+    }
     
 }
 
 extension JournalItem {
     
-    static func == (lhs: JournalItem, rhs: JournalItem) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.mood.happiness == rhs.mood.happiness
-    }
-    
+//    static func == (lhs: JournalItem, rhs: JournalItem) -> Bool {
+//        return lhs.id == rhs.id &&
+//            lhs.mood.happiness == rhs.mood.happiness
+//    }
+//
     
 }

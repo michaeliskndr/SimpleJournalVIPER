@@ -17,7 +17,7 @@ protocol MainListPresenterProtocol {
     
     var numberOfItems: Int { get }
     func viewWillAppear()
-    func itemForRow(_ indexPath: IndexPath) -> JournalItem
+    func itemForRow(_ indexPath: IndexPath) -> Journal
     func goToDetail(from view: UIViewController, at indexPath: IndexPath)
     func goToAddJournal(from view: UIViewController)
 }
@@ -26,14 +26,14 @@ protocol MainListRouterProtocol {
     
     static func createMainListModule() -> UIViewController
     
-    func presentToDetailJournal(from view: UIViewController, item: JournalItem)
+    func presentToDetailJournal(from view: UIViewController, item: Journal)
     func presentToAddJournal(from view: UIViewController)
 }
 
 protocol MainListInteractorProtocol {
     
     func addJournal(_ item: JournalItem)
-    func removeJournal(_ item: JournalItem)
-    func retrieveJournals() -> [JournalItem]
+    func removeJournal(_ item: Journal)
+    func retrieveJournals() -> [Journal]
     
 }
