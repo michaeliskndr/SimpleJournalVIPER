@@ -1,7 +1,7 @@
 # SimpleJournalVIPER
 Implementation of Simple Journal using VIPER, implement UI Layout programmatically, using CoreData for simple data persistence (Add + Delete).
 
-![](Self Sizing Cell.gif)
+![](SelfSizingCell.gif)
 
 ## Implement:
 1. VIPER
