@@ -17,7 +17,6 @@ class JournalDetailViewController: UIViewController {
     private let dateLabel = UILabel(forTextStyle: .caption1)
     private let detailLabel = UILabel(forTextStyle: .body)
     private let scrollView = UIScrollView(frame: .zero)
-    
     public var presenter: JournalDetailPresenterProtocol
     
     init(presenter: JournalDetailPresenterProtocol) {
@@ -65,6 +64,11 @@ class JournalDetailViewController: UIViewController {
         vStack.addArrangedSubview(dateLabel)
         vStack.addArrangedSubview(detailLabel)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self,
+            action: #selector(deleteTapped)
+        )
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = UIColor.offWhite
         scrollView.alwaysBounceVertical = true
@@ -97,6 +101,29 @@ class JournalDetailViewController: UIViewController {
         ])
     }
     
+    @objc func deleteTapped(sender: UIBarButtonItem) {
+        let ac = UIAlertController(
+            title: "Are You Sure",
+            message: "This journal entry will be deleted",
+            preferredStyle: .alert)
+        ac.addAction(
+            UIAlertAction(
+                title: "Delete",
+                style: .destructive,
+                handler: { [weak self] (_) in
+                    self?.presenter.deleteJournal(from: self)
+                }
+            )
+        )
+        ac.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil
+            )
+        )
+        present(ac, animated: true, completion: nil)
+    }
 }
 
 #if DEBUG

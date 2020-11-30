@@ -13,7 +13,7 @@ final class JournalDetailRouter: JournalDetailRouterProtocol {
     
     static func createJournalDetailModule(with item: Journal) -> JournalDetailViewController {
         let interactor = JournalDetailInteractor(journal: item)
-        
+        interactor.parentInteractor = MainListInteractor.shared
         let presenter = JournalDetailPresenter()
         presenter.interactor = interactor
         presenter.router = JournalDetailRouter()

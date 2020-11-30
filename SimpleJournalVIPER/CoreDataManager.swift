@@ -59,13 +59,9 @@ class CoreDataManager {
         return nil
     }
     
-    func deleteItem(at id: NSManagedObjectID) {
-        do {
-            let item = try moc.existingObject(with: id)
-            moc.delete(item)
-        } catch let fetchItemError {
-            print("Error while fetch data from coreData with \(id): \(fetchItemError)")
-        }
+    func delete(_ item: Journal) {
+        moc.delete(item)
+        saveContext()
     }
     
 }

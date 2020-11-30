@@ -32,8 +32,12 @@ final class MainListInteractor: MainListInteractorProtocol {
         reload()
     }
     
-    //TODO: REMOVE JOURNAL FROM COREDATA
     func removeJournal(_ item: Journal) {
-//        store.removeJournal(item)
+        store.delete(item)
+        guard let reload = reload else {
+            print("Reload function is empty")
+            return
+        }
+        reload()
     }
 }

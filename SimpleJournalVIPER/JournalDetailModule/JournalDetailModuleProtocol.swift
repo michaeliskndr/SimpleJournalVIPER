@@ -17,14 +17,15 @@ protocol JournalDetailPresenterProtocol {
     var reload: ((Journal) -> ())? { get set }
     
     func viewWillAppear()
-
+    func deleteJournal(from: UIViewController?)
 }
 
 protocol JournalDetailInteractorProtocol {
     
     var journal: Journal { get set }
-    
+    var parentInteractor: MainListInteractorProtocol? { get set }
     func getJournal() -> Journal
+    func delete(journal: Journal)
 }
 
 protocol JournalDetailRouterProtocol {

@@ -11,12 +11,17 @@ import Foundation
 final class JournalDetailInteractor: JournalDetailInteractorProtocol {
     
     var journal: Journal
-        
+    var parentInteractor: MainListInteractorProtocol?
+    
     func getJournal() -> Journal {
         return journal
     }
     
     init(journal: Journal) {
         self.journal = journal
+    }
+    
+    func delete(journal: Journal) {
+        parentInteractor?.removeJournal(journal)
     }
 }

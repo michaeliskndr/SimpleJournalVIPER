@@ -32,8 +32,9 @@ public class JournalStore {
         coreDataManager.getItem(at: id)
     }
     
-    func deleteJournal(at id: NSManagedObjectID) {
-        coreDataManager.deleteItem(at: id)
+    func delete(_ item: Journal) {
+        coreDataManager.delete(item)
+        print("Delete successsful")
     }
     
     private func configure(in journal: Journal, with item: JournalItem) {
