@@ -43,7 +43,7 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
     
     //TODO: ADD JOURNAL CAPABILIITES NOT YET IMPLEMENTED
     func didAddJournal(from view: UIViewController) {
-        guard let title = titleCellPresenter?.subtitle, let detail = detailCellPresenter?.subtitle, let date = titleCellPresenter?.date, let mood = moodCellPresenter?.happiness else {
+        guard let title = titleCellPresenter?.subtitle, let detail = detailCellPresenter?.subtitle, let date = dateCellPresenter?.date, let mood = moodCellPresenter?.happiness else {
             print("Empty JournalItem Data")
             return
         }

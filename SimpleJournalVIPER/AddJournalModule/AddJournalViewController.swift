@@ -144,7 +144,7 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         activeField = textView
-        if textView.textColor == .lightGray {
+        if textView.textColor == .systemBlue {
             textView.text = ""
             textView.textColor = .black
         }
@@ -153,8 +153,8 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         activeField = nil
         if textView.text.isEmpty {
-            textView.textColor = .lightGray
-            textView.text = "Hello World Test"
+            textView.textColor = .systemBlue
+            textView.text = "Please fill in again"
         }
     }
     

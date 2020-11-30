@@ -13,7 +13,7 @@ class JournalFormCell: UITableViewCell {
     private let titleLabel = UILabel(forTextStyle: .headline)
     private let titleTextfield = CustomTextField(insetX: 8, insetY: 8)
     private let titleTextView = UITextView(frame: .zero, textContainer: nil)
-    private let dateLabel = UILabel(forTextStyle: .subheadline)
+    private let datePickerView = UIDatePicker(frame: .zero)
     private let toolBar = UIToolbar(frame: .init(x: 0, y: 0, width: 40, height: 40))
     private lazy var doneBarButtonItem: UIBarButtonItem = {
         UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
@@ -44,12 +44,12 @@ class JournalFormCell: UITableViewCell {
     private func setupViews() {
         titleTextfield.font = CustomScaleFont.customFont(forStyle: .subheadline)
         titleTextfield.adjustsFontForContentSizeCategory = true
-        titleTextfield.backgroundColor = .systemGray3
+        titleTextfield.backgroundColor = .systemGray5
         titleTextfield.translatesAutoresizingMaskIntoConstraints = false
         
         titleTextView.font = CustomScaleFont.customFont(forStyle: .subheadline)
         titleTextView.adjustsFontForContentSizeCategory = true
-        titleTextView.backgroundColor = .systemGray3
+        titleTextView.backgroundColor = .systemGray5
         titleTextView.textContainerInset = .init(top: 8, left: 8, bottom: 0, right: 0)
         titleTextView.textContainer.lineFragmentPadding = 0
         titleTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,9 +63,13 @@ class JournalFormCell: UITableViewCell {
         slider.minimumValue = 0
         slider.maximumValue = 100
         slider.isContinuous = true
+        slider.minimumValueImage = UIImage(systemName: "hand.thumbsdown.fill")
+        slider.maximumValueImage = UIImage(systemName: "hand.thumbsup.fill")
         slider.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
     
-        [titleLabel, titleTextfield, titleTextView, slider, dateLabel].forEach { vStack.addArrangedSubview($0) }
+        datePickerView.datePickerMode = .date
+        datePickerView.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        [titleLabel, titleTextfield, titleTextView, slider, datePickerView].forEach { vStack.addArrangedSubview($0) }
 
         contentView.addSubview(vStack)
 
@@ -75,16 +79,16 @@ class JournalFormCell: UITableViewCell {
         self.presenter = presenter
         titleLabel.text = presenter.title
         titleTextfield.text = presenter.subtitle
-        titleTextfield.placeholder = presenter.placeholder
-        dateLabel.text = presenter.dateString
+        titleTextfield.attributedPlaceholder = NSAttributedString(string: presenter.placeholder, attributes: [.foregroundColor: UIColor.systemBlue])
+        datePickerView.date = presenter.date
         slider.value = presenter.floatHappiness
         switch presenter.type {
         case .title:
-            dateLabel.isHidden = true
+            datePickerView.isHidden = true
             titleTextView.isHidden = true
             slider.isHidden = true
         case .detail:
-            dateLabel.isHidden = true
+            datePickerView.isHidden = true
             titleTextfield.isHidden = true
             slider.isHidden = true
         case .date:
@@ -92,13 +96,13 @@ class JournalFormCell: UITableViewCell {
             titleTextView.isHidden = true
             slider.isHidden = true
         case .mood:
+            datePickerView.isHidden = true
             titleTextfield.isHidden = true
             titleTextView.isHidden = true
-            dateLabel.isHidden = true
         }
         if titleTextView.text.isEmpty {
             titleTextView.text = presenter.placeholder
-            titleTextView.textColor = .lightGray
+            titleTextView.textColor = .systemBlue
         } else {
             titleTextView.text = presenter.subtitle
         }
@@ -119,6 +123,11 @@ class JournalFormCell: UITableViewCell {
     
     @objc func tappedDone() {
         titleTextView.resignFirstResponder()
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        presenter?.update(sender.date)
+        sender.resignFirstResponder()
     }
     
     private func setupLayout() {

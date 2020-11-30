@@ -17,7 +17,7 @@ final class JournalCellPresenter {
     private(set) var subtitle: String
     let placeholder: String
     let type: FormType
-    let date: Date = Date()
+    private(set) var date: Date = Date()
     private(set) var happiness: Double = 50
     var floatHappiness: Float {
         return Float(happiness)
@@ -39,5 +39,9 @@ final class JournalCellPresenter {
     
     func update(_ value: Double) {
         happiness = value
+    }
+    
+    func update(_ value: Date) {
+        date = value
     }
 }
