@@ -145,7 +145,7 @@
 				FB1D5D59255A6B380077B1C8 /* JournalDetailModule */,
 				FB1D5D5E255A6F0E0077B1C8 /* Extensions */,
 				FBFA66DB255E2EAE00E529B5 /* Helper */,
-				FBC2A737255E775F00A809A9 /* AddJournalModule */,
+				FBC2A737255E775F00A809A9 /* FormJournalModule */,
 				FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */,
 				FBF4BAB9256BB426003E4464 /* JournalApp.xcdatamodeld */,
 			);
@@ -197,7 +197,7 @@
 			path = MainListModule;
 			sourceTree = "<group>";
 		};
-		FBC2A737255E775F00A809A9 /* AddJournalModule */ = {
+		FBC2A737255E775F00A809A9 /* FormJournalModule */ = {
 			isa = PBXGroup;
 			children = (
 				FBC2A728255E772E00A809A9 /* FormJournalPresenter.swift */,
@@ -208,7 +208,7 @@
 				FB94FCC125639E410014BC86 /* JournalFormCell.swift */,
 				FBF2C53B2564C8EB007F876E /* JournalCellPresenter.swift */,
 			);
-			path = AddJournalModule;
+			path = FormJournalModule;
 			sourceTree = "<group>";
 		};
 		FBFA66C4255E26BC00E529B5 /* Noto_Sans_JP */ = {
