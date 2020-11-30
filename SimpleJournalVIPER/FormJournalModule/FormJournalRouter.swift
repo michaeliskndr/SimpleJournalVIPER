@@ -10,7 +10,7 @@ import UIKit
 
 final class FormJournalRouter: FormJournalRouterProtocol {
     
-    static func createFormJournalModule() -> UIViewController {
+    static func createAddJournalFormModule() -> UIViewController {
         let interactor = FormJournalInteractor()
         interactor.parentInteractor = MainListInteractor.shared
         let presenter = FormJournalPresenter()
@@ -20,6 +20,17 @@ final class FormJournalRouter: FormJournalRouterProtocol {
         return controller
     }
     
+    static func createEditFormJournalModule(with item: Journal) -> UIViewController {
+        let interactor = FormJournalInteractor()
+        interactor.journal = item
+        interactor.parentInteractor = MainListInteractor.shared
+        let presenter = FormJournalPresenter()
+        presenter.interactor = interactor
+        presenter.router = FormJournalRouter()
+        let controller = FormJournalViewController(presenter: presenter)
+        return controller
+    }
+
     func goBackToMainViewController(from view: UIViewController) {
         view.dismiss(animated: true, completion: nil)
     }

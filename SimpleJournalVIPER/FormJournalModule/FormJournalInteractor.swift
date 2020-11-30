@@ -10,7 +10,8 @@ import Foundation
 
 final class FormJournalInteractor: FormJournalInteractorProtocol {
     
-    var parentInteractor: MainListInteractorProtocol?
+    var journal: Journal?
+    var parentInteractor: (MainListInteractorProtocol)?
     
     func addJournal(_ item: JournalItem) {
         parentInteractor?.addJournal(item)

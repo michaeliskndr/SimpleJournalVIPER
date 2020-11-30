@@ -198,7 +198,7 @@ struct AddJournalViewControllerRepresentable: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        let viewController = FormJournalRouter.createFormJournalModule()
+        let viewController = FormJournalRouter.createAddJournalFormModule()
         return viewController
     }
 }

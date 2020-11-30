@@ -45,6 +45,8 @@ class JournalDetailViewController: UIViewController {
     }
     
     private func setupViews() {
+        titleLabel.numberOfLines = 0
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.numberOfLines = 0
         
         hStack.axis = .horizontal
@@ -97,7 +99,8 @@ class JournalDetailViewController: UIViewController {
             vStack.topAnchor.constraint(equalTo: contentGuide.topAnchor, constant: 16),
             vStack.trailingAnchor.constraint(equalTo: contentGuide.trailingAnchor, constant: -16),
             vStack.bottomAnchor.constraint(equalTo: contentGuide.bottomAnchor,constant: -16),
-            contentGuide.widthAnchor.constraint(equalTo: frameGuide.widthAnchor)
+            contentGuide.widthAnchor.constraint(equalTo: frameGuide.widthAnchor),
+            titleLabel.widthAnchor.constraint(equalTo: vStack.widthAnchor, multiplier: 0.9)
         ])
     }
     
