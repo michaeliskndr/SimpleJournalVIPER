@@ -18,7 +18,7 @@ extension Journal {
     }
 
     @NSManaged public var date: Date?
-    @NSManaged public var id: Int16
+    @NSManaged public var id: UUID
     @NSManaged public var title: String?
     @NSManaged public var detail: String?
     @NSManaged public var mood: Mood?

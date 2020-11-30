@@ -37,7 +37,7 @@ public class JournalStore {
     }
     
     private func configure(in journal: Journal, with item: JournalItem) {
-        journal.id = Int16(item.uniqueID())
+        journal.id = item.uniqueID()
         journal.title = item.title
         journal.detail = item.detail
         journal.date = item.date

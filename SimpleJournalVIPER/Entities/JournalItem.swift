@@ -10,7 +10,7 @@ import Foundation
 
 struct JournalItem: Hashable {
 
-    private(set) static var id: Int = 0
+    private let id = UUID()
     let title: String
     let date: Date
     let detail: String
@@ -45,15 +45,14 @@ struct JournalItem: Hashable {
     }
     
     init(title: String, date: Date, detail: String, mood: Mood) {
-        JournalItem.id = JournalItem.id + 1
         self.title = title
         self.date = date
         self.detail = detail
         self.mood = mood
     }
     
-    func uniqueID() -> Int {
-        return JournalItem.id
+    func uniqueID() -> UUID {
+        return id
     }
     
 }
