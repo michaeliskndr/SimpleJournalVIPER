@@ -30,7 +30,7 @@ final class MainListRouter: MainListRouterProtocol {
     }
     
     func presentToAddJournal(from view: UIViewController) {
-        let addJournalController = AddJournalRouter.createAddJournalModule()
+        let addJournalController = FormJournalRouter.createFormJournalModule()
         modalNavigationController = UINavigationController(rootViewController: addJournalController)
         
         if let modalNavigationController = modalNavigationController {

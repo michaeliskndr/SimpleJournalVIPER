@@ -30,11 +30,11 @@
 		FB7AA5D625551D53009349CD /* MainListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AA5D525551D53009349CD /* MainListPresenter.swift */; };
 		FB94FCC225639E410014BC86 /* JournalFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94FCC125639E410014BC86 /* JournalFormCell.swift */; };
 		FBAC814F255CF67D00FD650E /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC814E255CF67D00FD650E /* Extensions+UIColor.swift */; };
-		FBC2A729255E772E00A809A9 /* AddJournalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A728255E772E00A809A9 /* AddJournalPresenter.swift */; };
-		FBC2A72C255E773600A809A9 /* AddJournalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A72B255E773600A809A9 /* AddJournalInteractor.swift */; };
-		FBC2A72F255E774100A809A9 /* AddJournalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A72E255E774100A809A9 /* AddJournalRouter.swift */; };
-		FBC2A732255E774B00A809A9 /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A731255E774B00A809A9 /* AddJournalViewController.swift */; };
-		FBC2A735255E775700A809A9 /* AddJournalModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A734255E775700A809A9 /* AddJournalModuleProtocol.swift */; };
+		FBC2A729255E772E00A809A9 /* FormJournalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A728255E772E00A809A9 /* FormJournalPresenter.swift */; };
+		FBC2A72C255E773600A809A9 /* FormJournalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A72B255E773600A809A9 /* FormJournalInteractor.swift */; };
+		FBC2A72F255E774100A809A9 /* FormJournalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A72E255E774100A809A9 /* FormJournalRouter.swift */; };
+		FBC2A732255E774B00A809A9 /* FormJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A731255E774B00A809A9 /* FormJournalViewController.swift */; };
+		FBC2A735255E775700A809A9 /* FormJournalModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A734255E775700A809A9 /* FormJournalModuleProtocol.swift */; };
 		FBC2A73A255E78AD00A809A9 /* Extensions+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2A739255E78AD00A809A9 /* Extensions+UILabel.swift */; };
 		FBF2C53C2564C8EB007F876E /* JournalCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2C53B2564C8EB007F876E /* JournalCellPresenter.swift */; };
 		FBF4BAB0256BB123003E4464 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */; };
@@ -77,11 +77,11 @@
 		FB7AA5D525551D53009349CD /* MainListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListPresenter.swift; sourceTree = "<group>"; };
 		FB94FCC125639E410014BC86 /* JournalFormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFormCell.swift; sourceTree = "<group>"; };
 		FBAC814E255CF67D00FD650E /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
-		FBC2A728255E772E00A809A9 /* AddJournalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalPresenter.swift; sourceTree = "<group>"; };
-		FBC2A72B255E773600A809A9 /* AddJournalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalInteractor.swift; sourceTree = "<group>"; };
-		FBC2A72E255E774100A809A9 /* AddJournalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalRouter.swift; sourceTree = "<group>"; };
-		FBC2A731255E774B00A809A9 /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
-		FBC2A734255E775700A809A9 /* AddJournalModuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalModuleProtocol.swift; sourceTree = "<group>"; };
+		FBC2A728255E772E00A809A9 /* FormJournalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJournalPresenter.swift; sourceTree = "<group>"; };
+		FBC2A72B255E773600A809A9 /* FormJournalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJournalInteractor.swift; sourceTree = "<group>"; };
+		FBC2A72E255E774100A809A9 /* FormJournalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJournalRouter.swift; sourceTree = "<group>"; };
+		FBC2A731255E774B00A809A9 /* FormJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJournalViewController.swift; sourceTree = "<group>"; };
+		FBC2A734255E775700A809A9 /* FormJournalModuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJournalModuleProtocol.swift; sourceTree = "<group>"; };
 		FBC2A739255E78AD00A809A9 /* Extensions+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UILabel.swift"; sourceTree = "<group>"; };
 		FBF2C53B2564C8EB007F876E /* JournalCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCellPresenter.swift; sourceTree = "<group>"; };
 		FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -200,11 +200,11 @@
 		FBC2A737255E775F00A809A9 /* AddJournalModule */ = {
 			isa = PBXGroup;
 			children = (
-				FBC2A728255E772E00A809A9 /* AddJournalPresenter.swift */,
-				FBC2A72B255E773600A809A9 /* AddJournalInteractor.swift */,
-				FBC2A72E255E774100A809A9 /* AddJournalRouter.swift */,
-				FBC2A731255E774B00A809A9 /* AddJournalViewController.swift */,
-				FBC2A734255E775700A809A9 /* AddJournalModuleProtocol.swift */,
+				FBC2A728255E772E00A809A9 /* FormJournalPresenter.swift */,
+				FBC2A72B255E773600A809A9 /* FormJournalInteractor.swift */,
+				FBC2A72E255E774100A809A9 /* FormJournalRouter.swift */,
+				FBC2A731255E774B00A809A9 /* FormJournalViewController.swift */,
+				FBC2A734255E775700A809A9 /* FormJournalModuleProtocol.swift */,
 				FB94FCC125639E410014BC86 /* JournalFormCell.swift */,
 				FBF2C53B2564C8EB007F876E /* JournalCellPresenter.swift */,
 			);
@@ -314,7 +314,7 @@
 				FB3D22152564D9BE007273B3 /* CustomTextField.swift in Sources */,
 				FBF2C53C2564C8EB007F876E /* JournalCellPresenter.swift in Sources */,
 				FBF4BAC0256BB45F003E4464 /* Journal+CoreDataProperties.swift in Sources */,
-				FBC2A72F255E774100A809A9 /* AddJournalRouter.swift in Sources */,
+				FBC2A72F255E774100A809A9 /* FormJournalRouter.swift in Sources */,
 				FBC2A73A255E78AD00A809A9 /* Extensions+UILabel.swift in Sources */,
 				FB1D5D5C255A6D410077B1C8 /* Extensions+Date.swift in Sources */,
 				FBF4BABF256BB45F003E4464 /* Journal+CoreDataClass.swift in Sources */,
@@ -322,7 +322,7 @@
 				FB1D5D54255A6B130077B1C8 /* JournalDetailInteractor.swift in Sources */,
 				FBAC814F255CF67D00FD650E /* Extensions+UIColor.swift in Sources */,
 				FBF4BACA256BBF5C003E4464 /* Mood+CoreDataClass.swift in Sources */,
-				FBC2A735255E775700A809A9 /* AddJournalModuleProtocol.swift in Sources */,
+				FBC2A735255E775700A809A9 /* FormJournalModuleProtocol.swift in Sources */,
 				FB1D5D4E255A6B010077B1C8 /* JournalDetailPresenter.swift in Sources */,
 				AD3E0C542542DF7500BECFFD /* AppDelegate.swift in Sources */,
 				FB7AA5CF25551D3C009349CD /* MainListInteractor.swift in Sources */,
@@ -338,9 +338,9 @@
 				FB1D5D4B255A6AEA0077B1C8 /* JournalDetailViewController.swift in Sources */,
 				FB77061F255536DB00321C76 /* HeaderView.swift in Sources */,
 				FBF4BABB256BB426003E4464 /* JournalApp.xcdatamodeld in Sources */,
-				FBC2A729255E772E00A809A9 /* AddJournalPresenter.swift in Sources */,
-				FBC2A72C255E773600A809A9 /* AddJournalInteractor.swift in Sources */,
-				FBC2A732255E774B00A809A9 /* AddJournalViewController.swift in Sources */,
+				FBC2A729255E772E00A809A9 /* FormJournalPresenter.swift in Sources */,
+				FBC2A72C255E773600A809A9 /* FormJournalInteractor.swift in Sources */,
+				FBC2A732255E774B00A809A9 /* FormJournalViewController.swift in Sources */,
 				FBF4BACB256BBF5C003E4464 /* Mood+CoreDataProperties.swift in Sources */,
 				FB7AA5BC255513EC009349CD /* MainListViewController.swift in Sources */,
 				AD3E0C562542DF7500BECFFD /* SceneDelegate.swift in Sources */,

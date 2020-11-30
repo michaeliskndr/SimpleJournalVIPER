@@ -8,15 +8,15 @@
 
 import UIKit
 
-final class AddJournalRouter: AddJournalRouterProtocol {
+final class FormJournalRouter: FormJournalRouterProtocol {
     
-    static func createAddJournalModule() -> UIViewController {
-        let interactor = AddJournalInteractor()
+    static func createFormJournalModule() -> UIViewController {
+        let interactor = FormJournalInteractor()
         interactor.parentInteractor = MainListInteractor.shared
-        let presenter = AddJournalPresenter()
+        let presenter = FormJournalPresenter()
         presenter.interactor = interactor
-        presenter.router = AddJournalRouter()
-        let controller = AddJournalViewController(presenter: presenter)
+        presenter.router = FormJournalRouter()
+        let controller = FormJournalViewController(presenter: presenter)
         return controller
     }
     

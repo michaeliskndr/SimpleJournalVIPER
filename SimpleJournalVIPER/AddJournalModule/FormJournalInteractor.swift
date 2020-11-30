@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class AddJournalInteractor: AddJournalInteractorProtocol {
+final class FormJournalInteractor: FormJournalInteractorProtocol {
     
     var parentInteractor: MainListInteractorProtocol?
     

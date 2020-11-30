@@ -8,13 +8,13 @@
 
 import UIKit
 
-class AddJournalViewController: UIViewController {
+class FormJournalViewController: UIViewController {
     
     private let tableView = UITableView()
-    private let presenter: AddJournalPresenter
+    private let presenter: FormJournalPresenter
     private var activeField: UIView?
     
-    init(presenter: AddJournalPresenter) {
+    init(presenter: FormJournalPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         self.presenter.reload = { [weak self] in
@@ -77,7 +77,7 @@ class AddJournalViewController: UIViewController {
     
 }
 
-extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
+extension FormJournalViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -98,7 +98,7 @@ extension AddJournalViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
+extension FormJournalViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let currentText = textField.text else {
@@ -160,7 +160,7 @@ extension AddJournalViewController: UITextViewDelegate, UITextFieldDelegate {
     
 }
 
-extension AddJournalViewController {
+extension FormJournalViewController {
     
     func addKeyboardObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -198,7 +198,7 @@ struct AddJournalViewControllerRepresentable: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        let viewController = AddJournalRouter.createAddJournalModule()
+        let viewController = FormJournalRouter.createFormJournalModule()
         return viewController
     }
 }

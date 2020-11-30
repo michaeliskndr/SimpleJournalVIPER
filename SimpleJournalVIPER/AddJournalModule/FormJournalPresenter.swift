@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class AddJournalPresenter: AddJournalPresenterProtocol {
+final class FormJournalPresenter: FormJournalPresenterProtocol {
     
-    var interactor: AddJournalInteractorProtocol?
+    var interactor: FormJournalInteractorProtocol?
     
-    var router: AddJournalRouterProtocol?
+    var router: FormJournalRouterProtocol?
     
     var reload: (() -> ())?
     
@@ -54,7 +54,7 @@ final class AddJournalPresenter: AddJournalPresenterProtocol {
     
 }
 
-extension AddJournalPresenter {
+extension FormJournalPresenter {
     
     func setupCell() {
         guard let reload = reload else {

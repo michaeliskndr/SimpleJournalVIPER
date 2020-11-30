@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol AddJournalPresenterProtocol {
+protocol FormJournalPresenterProtocol {
     
-    var interactor: AddJournalInteractorProtocol? { get set }
-    var router: AddJournalRouterProtocol? { get set }
+    var interactor: FormJournalInteractorProtocol? { get set }
+    var router: FormJournalRouterProtocol? { get set }
     
     var reload: (() -> ())? { get set }
     
@@ -21,12 +21,12 @@ protocol AddJournalPresenterProtocol {
     
 }
 
-protocol AddJournalRouterProtocol {
+protocol FormJournalRouterProtocol {
     
     func goBackToMainViewController(from view: UIViewController)
 }
 
-protocol AddJournalInteractorProtocol {
+protocol FormJournalInteractorProtocol {
     
     var parentInteractor: MainListInteractorProtocol? { get set }
     func addJournal(_ item: JournalItem)
