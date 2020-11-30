@@ -38,6 +38,11 @@ class MainListViewController: UIViewController {
         setupCollectionViewLayout()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
     private func setupViews() {
         collectionView.frame = view.bounds
         collectionView.backgroundColor = .white
