@@ -104,7 +104,7 @@ class JournalDetailViewController: UIViewController {
         ])
     }
     
-    @objc func deleteTapped(sender: UIBarButtonItem) {
+    @objc private func deleteTapped(sender: UIBarButtonItem) {
         let ac = UIAlertController(
             title: "Are You Sure",
             message: "This journal entry will be deleted",
@@ -114,7 +114,20 @@ class JournalDetailViewController: UIViewController {
                 title: "Delete",
                 style: .destructive,
                 handler: { [weak self] (_) in
-                    self?.presenter.deleteJournal(from: self)
+                    let ac = UIAlertController(
+                        title: "Delete Successful",
+                        message: nil,
+                        preferredStyle: .alert)
+                    ac.addAction(
+                        UIAlertAction(
+                            title: "OK",
+                            style: .default,
+                            handler: { [weak self] (_) in
+                                self?.presenter.deleteJournal(from: self)
+                            }
+                        )
+                    )
+                    self?.present(ac, animated: true, completion: nil)
                 }
             )
         )
