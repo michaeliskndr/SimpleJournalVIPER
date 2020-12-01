@@ -82,7 +82,7 @@ class MainListViewController: UIViewController {
         
     }
     
-    @objc func tappedAdd() {
+    @objc private func tappedAdd() {
         presenter.goToAddJournal(from: self)
     }
     
