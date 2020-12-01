@@ -34,10 +34,5 @@ final class MainListInteractor: MainListInteractorProtocol {
     
     func removeJournal(_ item: Journal) {
         store.delete(item)
-        guard let reload = reload else {
-            print("Reload function is empty")
-            return
-        }
-        reload()
     }
 }
