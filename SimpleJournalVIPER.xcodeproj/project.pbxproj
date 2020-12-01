@@ -86,10 +86,10 @@
 		FBF2C53B2564C8EB007F876E /* JournalCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCellPresenter.swift; sourceTree = "<group>"; };
 		FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FBF4BABA256BB426003E4464 /* JournalApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JournalApp.xcdatamodel; sourceTree = "<group>"; };
-		FBF4BABD256BB45F003E4464 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FBF4BABE256BB45F003E4464 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		FBF4BAC8256BBF5C003E4464 /* Mood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FBF4BAC9256BBF5C003E4464 /* Mood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FBF4BABD256BB45F003E4464 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataClass.swift"; path = "SimpleJournalVIPER/Entities/CoreDataModel/Journal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FBF4BABE256BB45F003E4464 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataProperties.swift"; path = "SimpleJournalVIPER/Entities/CoreDataModel/Journal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FBF4BAC8256BBF5C003E4464 /* Mood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Mood+CoreDataClass.swift"; path = "SimpleJournalVIPER/Entities/CoreDataModel/Mood+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FBF4BAC9256BBF5C003E4464 /* Mood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Mood+CoreDataProperties.swift"; path = "SimpleJournalVIPER/Entities/CoreDataModel/Mood+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FBFA66C5255E26BC00E529B5 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		FBFA66C6255E26BC00E529B5 /* NotoSansJP-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.otf"; sourceTree = "<group>"; };
 		FBFA66C7255E26BC00E529B5 /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.otf"; sourceTree = "<group>"; };
@@ -130,10 +130,7 @@
 		AD3E0C522542DF7500BECFFD /* SimpleJournalVIPER */ = {
 			isa = PBXGroup;
 			children = (
-				FBF4BAC8256BBF5C003E4464 /* Mood+CoreDataClass.swift */,
-				FBF4BAC9256BBF5C003E4464 /* Mood+CoreDataProperties.swift */,
-				FBF4BABD256BB45F003E4464 /* Journal+CoreDataClass.swift */,
-				FBF4BABE256BB45F003E4464 /* Journal+CoreDataProperties.swift */,
+				FBF4BAB9256BB426003E4464 /* JournalApp.xcdatamodeld */,
 				FBFA66C4255E26BC00E529B5 /* Noto_Sans_JP */,
 				FB7AA5C625551D01009349CD /* MainListModule */,
 				AD3E0C532542DF7500BECFFD /* AppDelegate.swift */,
@@ -146,8 +143,6 @@
 				FB1D5D5E255A6F0E0077B1C8 /* Extensions */,
 				FBFA66DB255E2EAE00E529B5 /* Helper */,
 				FBC2A737255E775F00A809A9 /* FormJournalModule */,
-				FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */,
-				FBF4BAB9256BB426003E4464 /* JournalApp.xcdatamodeld */,
 			);
 			path = SimpleJournalVIPER;
 			sourceTree = "<group>";
@@ -177,6 +172,8 @@
 		FB5884D02553994E001A49CE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FBF4BAAF256BB123003E4464 /* CoreDataManager.swift */,
+				FBB39FEA2575F32C00A709B1 /* CoreDataModel */,
 				ADF0BFB7255149BA0006E673 /* JournalItem.swift */,
 				ADF0BFB5255149B30006E673 /* JournalStore.swift */,
 			);
@@ -195,6 +192,17 @@
 				FB77061E255536DB00321C76 /* HeaderView.swift */,
 			);
 			path = MainListModule;
+			sourceTree = "<group>";
+		};
+		FBB39FEA2575F32C00A709B1 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FBF4BAC8256BBF5C003E4464 /* Mood+CoreDataClass.swift */,
+				FBF4BAC9256BBF5C003E4464 /* Mood+CoreDataProperties.swift */,
+				FBF4BABD256BB45F003E4464 /* Journal+CoreDataClass.swift */,
+				FBF4BABE256BB45F003E4464 /* Journal+CoreDataProperties.swift */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		FBC2A737255E775F00A809A9 /* FormJournalModule */ = {
