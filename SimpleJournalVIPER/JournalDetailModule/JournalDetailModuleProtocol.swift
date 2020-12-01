@@ -23,7 +23,7 @@ protocol JournalDetailPresenterProtocol {
 protocol JournalDetailInteractorProtocol {
     
     var journal: Journal { get set }
-    var parentInteractor: MainListInteractorProtocol? { get set }
+    var journalStore: JournalStoreProtocol? { get set }
     func getJournal() -> Journal
     func delete(journal: Journal)
 }

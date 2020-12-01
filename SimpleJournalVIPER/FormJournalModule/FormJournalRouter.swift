@@ -12,6 +12,8 @@ final class FormJournalRouter: FormJournalRouterProtocol {
     
     static func createAddJournalFormModule() -> UIViewController {
         let interactor = FormJournalInteractor()
+        //MARK: IS THIS A GOOD THING TO DO?
+        //MARK: HOW TO TELL ANOTHER MODULE TO REFRESH ON ITS OWN?
         interactor.parentInteractor = MainListInteractor.shared
         let presenter = FormJournalPresenter()
         presenter.interactor = interactor
@@ -23,6 +25,7 @@ final class FormJournalRouter: FormJournalRouterProtocol {
     static func createEditFormJournalModule(with item: Journal) -> UIViewController {
         let interactor = FormJournalInteractor()
         interactor.journal = item
+        //MARK: IS THIS A GOOD THING TO DO?
         interactor.parentInteractor = MainListInteractor.shared
         let presenter = FormJournalPresenter()
         presenter.interactor = interactor

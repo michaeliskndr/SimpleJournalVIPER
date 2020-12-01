@@ -9,7 +9,14 @@
 import Foundation
 import CoreData
 
-public class JournalStore {
+protocol JournalStoreProtocol {
+    
+    func getJournals() -> [Journal]
+    func getJournal(at id: NSManagedObjectID) -> Journal?
+    func delete(_ item: Journal)
+}
+
+public class JournalStore: JournalStoreProtocol {
     
     public static let shared = JournalStore()
     

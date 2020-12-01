@@ -11,7 +11,7 @@ import Foundation
 final class JournalDetailInteractor: JournalDetailInteractorProtocol {
     
     var journal: Journal
-    var parentInteractor: MainListInteractorProtocol?
+    var journalStore: JournalStoreProtocol? = JournalStore.shared
     
     func getJournal() -> Journal {
         return journal
@@ -22,6 +22,6 @@ final class JournalDetailInteractor: JournalDetailInteractorProtocol {
     }
     
     func delete(journal: Journal) {
-        parentInteractor?.removeJournal(journal)
+        journalStore?.delete(journal)
     }
 }
