@@ -103,7 +103,7 @@ import SwiftUI
 
 struct JournalCellRepresentable: UIViewRepresentable {
     
-    let item = Journal(context: CoreDataManager.shared.moc)
+    let item = Journal(context: CoreDataManager.shared.getContext())
     func updateUIView(_ uiView: JournalCell, context: Context) {
     }
     

@@ -8,11 +8,12 @@
 
 import CoreData
 
-class CoreDataManager {
+public final class CoreDataManager {
     
     static let shared = CoreDataManager()
+    private init() {}
     
-    lazy var container: NSPersistentContainer = {
+    private lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "JournalApp")
         container.loadPersistentStores { (_, error) in
             container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -25,7 +26,7 @@ class CoreDataManager {
         return container
     }()
     
-    var moc: NSManagedObjectContext {
+    private var moc: NSManagedObjectContext {
         return container.viewContext
     }
 
@@ -62,6 +63,10 @@ class CoreDataManager {
     func delete(_ item: Journal) {
         moc.delete(item)
         saveContext()
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        return moc
     }
     
 }

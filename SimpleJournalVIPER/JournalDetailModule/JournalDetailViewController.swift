@@ -161,7 +161,7 @@ struct JournalDetailViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct JournalDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        return JournalDetailViewControllerRepresentable(item: Journal(context: CoreDataManager.shared.moc))
+        return JournalDetailViewControllerRepresentable(item: Journal(context: CoreDataManager.shared.getContext()))
     }
 }
 #endif

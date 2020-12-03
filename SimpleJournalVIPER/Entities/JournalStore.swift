@@ -16,7 +16,7 @@ protocol JournalStoreProtocol {
     func delete(_ item: Journal)
 }
 
-public class JournalStore: JournalStoreProtocol {
+public final class JournalStore: JournalStoreProtocol {
     
     public static let shared = JournalStore()
     
@@ -25,7 +25,7 @@ public class JournalStore: JournalStoreProtocol {
     
     func save(_ item: JournalItem) {
         //TODO: THIS IS ONLY ADD MODEL NOT EDIT
-        let journal = Journal(context: coreDataManager.moc)
+        let journal = Journal(context: coreDataManager.getContext())
         configure(in: journal, with: item)
         coreDataManager.saveContext()
         print("Add Successful")
@@ -49,7 +49,7 @@ public class JournalStore: JournalStoreProtocol {
         journal.title = item.title
         journal.detail = item.detail
         journal.date = item.date
-        journal.mood = Mood(context: coreDataManager.moc)
+        journal.mood = Mood(context: coreDataManager.getContext())
         journal.mood?.happiness = item.mood.happiness
         journal.mood?.mood = item.mood.mood.emoji
         
